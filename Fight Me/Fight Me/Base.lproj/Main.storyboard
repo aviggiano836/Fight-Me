@@ -30,7 +30,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yVX-mW-GMe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Shop" id="axN-7h-MBa"/>
+                    <tabBarItem key="tabBarItem" title="Shop" image="shop" selectedImage="shop" id="axN-7h-MBa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUI-cj-kgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,7 +56,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="h1Y-gi-NZF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="BdX-Yu-uEu"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ninja" selectedImage="ninja" id="BdX-Yu-uEu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0T6-1f-msS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,7 +93,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Fight" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Fight" image="swords" selectedImage="swords" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +130,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Inventory" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Inventory" image="school" selectedImage="school" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,7 +158,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="ninja" width="32" height="32"/>
+        <image name="school" width="32" height="32"/>
+        <image name="shop" width="32" height="32"/>
+        <image name="swords" width="32" height="32"/>
     </resources>
 </document>
