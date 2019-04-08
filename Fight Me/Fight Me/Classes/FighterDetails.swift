@@ -15,7 +15,7 @@ class FighterDetails: NSObject {
     var birthday: Date
     
     init(username:String, height:Double, weight:Double, birthday:Date){
-        self.username = name
+        self.username = username
         self.height = height
         self.weight = weight
         self.birthday = birthday
@@ -26,7 +26,15 @@ class FighterDetails: NSObject {
     }
     
     func updateWeight(newWeight:Double){
-        self.height = newHeight
+        self.height = newWeight
+    }
+    
+    func getHeight() -> Double{
+        return height
+    }
+    
+    func getWeight() -> Double{
+        return weight
     }
 
 }
