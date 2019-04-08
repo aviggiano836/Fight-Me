@@ -30,6 +30,7 @@ class Equipment: NSObject {
         self.currentDurability = currentDurability
         self.name = name
         self.desc = desc
+        self.type = type
         self.buff = buff
         self.cost = cost
         self.imagePath = imagePath
@@ -61,7 +62,7 @@ class Equipment: NSObject {
     }
     
     func getBuff() -> Int {
-        return self.buff!
+        return self.buff
     }
     
     
