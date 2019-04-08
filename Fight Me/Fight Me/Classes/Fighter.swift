@@ -20,17 +20,17 @@ class Fighter: FighterDetails {
     
     
     init(username:String, height:Double, weight:Double, birthday:Date) {
-        super.init(height,weight,birthday)
+        super.init(username:username,height:height,weight:weight,birthday:birthday)
     }
 
     //updates fitness level
     func calculateFitnessLevel(){
-        
+        //TODO
     }
     
     //creates a bundle with basic info used for calulating a fight
     func bundleFighter(){
-        
+        //TODO
     }
     
     //Returns a touple of what equpiment the fighter has equpied
