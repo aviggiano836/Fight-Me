@@ -22,9 +22,8 @@
 		3F8A591C225BDF4A002D68ED /* FightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591B225BDF4A002D68ED /* FightController.swift */; };
 		3F8A591E225BDF57002D68ED /* InventoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591D225BDF57002D68ED /* InventoryController.swift */; };
 		3F8A5920225BDFB9002D68ED /* NewUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591F225BDFB9002D68ED /* NewUserController.swift */; };
+		3F8A5922225BE0AC002D68ED /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5921225BE0AC002D68ED /* TabBarController.swift */; };
 		89CBCC9922553ACA009CF61B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBCC9822553ACA009CF61B /* AppDelegate.swift */; };
-		89CBCC9B22553ACA009CF61B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBCC9A22553ACA009CF61B /* FirstViewController.swift */; };
-		89CBCC9D22553ACA009CF61B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBCC9C22553ACA009CF61B /* SecondViewController.swift */; };
 		89CBCCA022553ACA009CF61B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CBCC9E22553ACA009CF61B /* Main.storyboard */; };
 		89CBCCA222553ACB009CF61B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89CBCCA122553ACB009CF61B /* Assets.xcassets */; };
 		89CBCCA522553ACB009CF61B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CBCCA322553ACB009CF61B /* LaunchScreen.storyboard */; };
@@ -46,10 +45,9 @@
 		3F8A591B225BDF4A002D68ED /* FightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightController.swift; sourceTree = "<group>"; };
 		3F8A591D225BDF57002D68ED /* InventoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryController.swift; sourceTree = "<group>"; };
 		3F8A591F225BDFB9002D68ED /* NewUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserController.swift; sourceTree = "<group>"; };
+		3F8A5921225BE0AC002D68ED /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		89CBCC9522553ACA009CF61B /* Fight Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fight Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CBCC9822553ACA009CF61B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89CBCC9A22553ACA009CF61B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		89CBCC9C22553ACA009CF61B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		89CBCC9F22553ACA009CF61B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89CBCCA122553ACB009CF61B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89CBCCA422553ACB009CF61B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +73,7 @@
 				3F8A591B225BDF4A002D68ED /* FightController.swift */,
 				3F8A591D225BDF57002D68ED /* InventoryController.swift */,
 				3F8A591F225BDFB9002D68ED /* NewUserController.swift */,
+				3F8A5921225BE0AC002D68ED /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -134,8 +133,6 @@
 				3F8A5900225BDD9F002D68ED /* Classes */,
 				3F8A58FF225BDD83002D68ED /* Controllers */,
 				89CBCC9822553ACA009CF61B /* AppDelegate.swift */,
-				89CBCC9A22553ACA009CF61B /* FirstViewController.swift */,
-				89CBCC9C22553ACA009CF61B /* SecondViewController.swift */,
 				89CBCC9E22553ACA009CF61B /* Main.storyboard */,
 				89CBCCA122553ACB009CF61B /* Assets.xcassets */,
 				89CBCCA322553ACB009CF61B /* LaunchScreen.storyboard */,
@@ -218,11 +215,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89CBCC9D22553ACA009CF61B /* SecondViewController.swift in Sources */,
+				3F8A5922225BE0AC002D68ED /* TabBarController.swift in Sources */,
 				3F8A591C225BDF4A002D68ED /* FightController.swift in Sources */,
 				3F8A590A225BDE49002D68ED /* Fighter.swift in Sources */,
 				89CBCC9922553ACA009CF61B /* AppDelegate.swift in Sources */,
-				89CBCC9B22553ACA009CF61B /* FirstViewController.swift in Sources */,
 				3F8A5920225BDFB9002D68ED /* NewUserController.swift in Sources */,
 				3F8A5916225BDED1002D68ED /* Equipment.swift in Sources */,
 				3F8A5910225BDE96002D68ED /* AchievementHandler.swift in Sources */,
