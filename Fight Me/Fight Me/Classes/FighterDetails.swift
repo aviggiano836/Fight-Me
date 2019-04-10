@@ -13,6 +13,8 @@ class FighterDetails: NSObject {
     var height: Double
     var weight: Double
     var birthday: Date
+    var bmi: Double?
+    let baseFitnessLevel: Int = 10
     
     init(username:String, height:Double, weight:Double, birthday:Date){
         self.username = username
@@ -21,12 +23,36 @@ class FighterDetails: NSObject {
         self.birthday = birthday
     }
     
+    //updates fitness level
+    func calculateBaseFitnessLevel() -> Int {
+        //TODO
+        let bmi = self.getBMI()
+        if( 18 < bmi && bmi < 24.9 ){               //normal weight, no change
+            return baseFitnessLevel
+        } else if ( 25 < bmi && bmi < 29.9 ) {      //overweight
+            return baseFitnessLevel - 4
+            
+        } else if ( 30 < bmi && bmi < 39.9 ){       //obese
+            return baseFitnessLevel - 6
+            
+        } else {                                    //extremely obese or underweight
+            return baseFitnessLevel - 10
+        }
+        
+    }
+    
+    func calculateBMI(){
+        bmi = (weight/(height*height)) * 703
+    }
+    
     func updateHeight(newHeight:Double){
         self.height = newHeight
+        self.calculateBMI()
     }
     
     func updateWeight(newWeight:Double){
         self.height = newWeight
+        self.calculateBMI()
     }
     
     func getHeight() -> Double{
@@ -35,6 +61,10 @@ class FighterDetails: NSObject {
     
     func getWeight() -> Double{
         return weight
+    }
+    
+    func getBMI() -> Double {
+        return bmi!
     }
 
 }
