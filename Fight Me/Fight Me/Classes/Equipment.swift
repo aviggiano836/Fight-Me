@@ -8,25 +8,29 @@
 
 import UIKit
 
+
+enum EquipmentType{
+    case WEAPON
+    case ARMOR
+}
+
 class Equipment: NSObject {
-    enum EquipmentType{
-        case WEAPON
-        case ARMOR
-    }
-    
+
     var maxDurability: Int?
     var currentDurability: Int?
     var name: String?
     var desc: String?
-    var buff: (EquipmentType, Int)?
+    var type: EquipmentType
+    var buff: Int
     var cost: Int?
     var imagePath: String?
     
-    init(maxDurability:Int, currentDurability:Int, name:String, desc:String, buff:(EquipmentType, Int), cost:Int, imagePath:String){
+    init(maxDurability:Int, currentDurability:Int, name:String, desc:String, type:EquipmentType, buff:Int, cost:Int, imagePath:String){
         self.maxDurability = maxDurability
         self.currentDurability = currentDurability
         self.name = name
         self.desc = desc
+        self.type = type
         self.buff = buff
         self.cost = cost
         self.imagePath = imagePath
@@ -48,13 +52,17 @@ class Equipment: NSObject {
         return self.currentDurability!
     }
     
-    func useEquipment() -> Int{
-        self.currentDurability = self.currentDurability! - 1
-        return self.currentDurability!  
+    func getType() -> EquipmentType {
+        return self.type
     }
     
-    func getBuff() -> (EquipmentType, Int) {
-        return self.buff!
+    func useEquipment() -> Int{
+        self.currentDurability = self.currentDurability! - 1
+        return self.currentDurability!
+    }
+    
+    func getBuff() -> Int {
+        return self.buff
     }
     
     
