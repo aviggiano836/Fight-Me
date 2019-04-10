@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import CoreMotion
 
 class FitnessHandler: NSObject {
-    var dailyActivityLevels:[Date:(Bool,Int)]
     
+    //app variables
+    var dailyActivityLevels:[Date:(Bool,Int)] = [:]
+    
+    
+    //pedometer variables
+    private let activityManager = CMMotionActivityManager()
+    private let pedometer = CMPedometer()
     
     func updateStepsForToday(){
         

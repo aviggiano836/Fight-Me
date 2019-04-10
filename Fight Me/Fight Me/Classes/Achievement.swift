@@ -13,15 +13,24 @@ class Achievement: NSObject {
     var name: String
     var desc: String
     //var requirement:
-    var eAward: Equipment
+    var eAward: Equipment?
     var pAward: Int
     var imagePath: String
     
-    //if not pAward then set to 0, if not equipment IDK
-    init(name:String,desc:String,eAward:Equipment,pAward:Int,imagePath:String){
+    //award is equipment
+    init(name:String,desc:String,eAward:Equipment,imagePath:String){
         self.name = name
         self.desc = desc
         self.eAward = eAward
+        self.pAward = 0
+        self.imagePath = imagePath
+    }
+    
+    //award is points
+    init(name:String,desc:String,pAward:Int,imagePath:String){
+        self.name = name
+        self.desc = desc
+        self.eAward = nil
         self.pAward = pAward
         self.imagePath = imagePath
     }
@@ -37,7 +46,7 @@ class Achievement: NSObject {
     //returns the award for the achievement either skill points OR an equipment
     func getAward()->String{
         if(pAward == 0){
-            return eAward.getName()
+            return (eAward?.getName())!
         }else{
             return String(pAward)
         }
