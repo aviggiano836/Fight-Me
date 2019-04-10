@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F8A5904225BDDE3002D68ED /* equipment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A5903225BDDE3002D68ED /* equipment.plist */; };
+		3F8A5904225BDDE3002D68ED /* shop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A5903225BDDE3002D68ED /* shop.plist */; };
 		3F8A5906225BDDF7002D68ED /* achievements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A5905225BDDF7002D68ED /* achievements.plist */; };
 		3F8A5908225BDE24002D68ED /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A5907225BDE24002D68ED /* userData.plist */; };
 		3F8A590A225BDE49002D68ED /* Fighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5909225BDE49002D68ED /* Fighter.swift */; };
@@ -31,7 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F8A5903225BDDE3002D68ED /* equipment.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = equipment.plist; sourceTree = "<group>"; };
+		3F8A5903225BDDE3002D68ED /* shop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = shop.plist; sourceTree = "<group>"; };
 		3F8A5905225BDDF7002D68ED /* achievements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = achievements.plist; sourceTree = "<group>"; };
 		3F8A5907225BDE24002D68ED /* userData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = userData.plist; sourceTree = "<group>"; };
 		3F8A5909225BDE49002D68ED /* Fighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fighter.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		3F8A5902225BDDC1002D68ED /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3F8A5903225BDDE3002D68ED /* equipment.plist */,
+				3F8A5903225BDDE3002D68ED /* shop.plist */,
 				3F8A5905225BDDF7002D68ED /* achievements.plist */,
 				3F8A5907225BDE24002D68ED /* userData.plist */,
 			);
@@ -214,7 +214,7 @@
 				3F8A5906225BDDF7002D68ED /* achievements.plist in Resources */,
 				3F8A5908225BDE24002D68ED /* userData.plist in Resources */,
 				89CBCCA522553ACB009CF61B /* LaunchScreen.storyboard in Resources */,
-				3F8A5904225BDDE3002D68ED /* equipment.plist in Resources */,
+				3F8A5904225BDDE3002D68ED /* shop.plist in Resources */,
 				89CBCCA222553ACB009CF61B /* Assets.xcassets in Resources */,
 				89CBCCA022553ACA009CF61B /* Main.storyboard in Resources */,
 			);

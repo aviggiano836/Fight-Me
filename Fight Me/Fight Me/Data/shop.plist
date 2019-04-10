@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Equipment</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>nunchucks</string>
+			<key>isAward</key>
+			<true/>
+			<key>spCost</key>
+			<integer>14</integer>
+			<key>maxDurability</key>
+			<integer>12</integer>
+			<key>buff</key>
+			<integer>8</integer>
+			<key>description</key>
+			<string>Dangerous...to you especially</string>
+			<key>name</key>
+			<string>Nunchucks</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>cokeAndMentos</string>
+			<key>isAward</key>
+			<true/>
+			<key>spCost</key>
+			<integer>5</integer>
+			<key>maxDurability</key>
+			<integer>1</integer>
+			<key>buff</key>
+			<integer>5</integer>
+			<key>description</key>
+			<string>Explosive</string>
+			<key>name</key>
+			<string>Coke and Mentos</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>petRock</string>
+			<key>isAward</key>
+			<true/>
+			<key>spCost</key>
+			<integer>0</integer>
+			<key>maxDurability</key>
+			<integer>0</integer>
+			<key>buff</key>
+			<integer>10</integer>
+			<key>description</key>
+			<string>Best pet ever</string>
+			<key>name</key>
+			<string>Pet Rock</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>rock</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>12</integer>
+			<key>maxDurability</key>
+			<integer>4</integer>
+			<key>buff</key>
+			<integer>3</integer>
+			<key>description</key>
+			<string>;&apos;( Its not the same</string>
+			<key>name</key>
+			<string>Inferior Rock</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>brassKnuckles</string>
+			<key>isAward</key>
+			<true/>
+			<key>spCost</key>
+			<integer>8</integer>
+			<key>maxDurability</key>
+			<integer>6</integer>
+			<key>buff</key>
+			<integer>5</integer>
+			<key>description</key>
+			<string>Good for punching</string>
+			<key>name</key>
+			<string>Brass Knuckles</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>beerBottle</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>1</integer>
+			<key>maxDurability</key>
+			<integer>2</integer>
+			<key>buff</key>
+			<integer>2</integer>
+			<key>description</key>
+			<string>It&apos;s sharp and pointy, smells like beer</string>
+			<key>name</key>
+			<string>Broken Beer Bottle</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>armor</string>
+			<key>icon</key>
+			<string>metalTrashCan</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>15</integer>
+			<key>maxDurability</key>
+			<integer>9</integer>
+			<key>buff</key>
+			<integer>8</integer>
+			<key>description</key>
+			<string>Superior trash can armor</string>
+			<key>name</key>
+			<string>Metal Trash Can</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>armor</string>
+			<key>icon</key>
+			<string>plasticTrashCan</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>4</integer>
+			<key>maxDurability</key>
+			<integer>4</integer>
+			<key>buff</key>
+			<integer>3</integer>
+			<key>description</key>
+			<string>Stinky mediocre protection</string>
+			<key>name</key>
+			<string>Beat-up Trash Can</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>armor</string>
+			<key>icon</key>
+			<string>hockeyMask</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>7</integer>
+			<key>maxDurability</key>
+			<integer>7</integer>
+			<key>buff</key>
+			<integer>3</integer>
+			<key>description</key>
+			<string>Grab your machete</string>
+			<key>name</key>
+			<string>Hockey Mask</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>armor</string>
+			<key>icon</key>
+			<string>trashCanLid</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>4</integer>
+			<key>maxDurability</key>
+			<integer>3</integer>
+			<key>buff</key>
+			<integer>3</integer>
+			<key>description</key>
+			<string>Classic</string>
+			<key>name</key>
+			<string>Trash Can Lid</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>machete</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>8</integer>
+			<key>maxDurability</key>
+			<integer>8</integer>
+			<key>buff</key>
+			<integer>7</integer>
+			<key>description</key>
+			<string>Now all you need is a hockey mask</string>
+			<key>name</key>
+			<string>Machete</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>armor</string>
+			<key>icon</key>
+			<string>potatoSack</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>1</integer>
+			<key>maxDurability</key>
+			<integer>3</integer>
+			<key>buff</key>
+			<integer>1</integer>
+			<key>description</key>
+			<string>You can&apos;t pull off this look</string>
+			<key>name</key>
+			<string>Potato Sack</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>firecracker</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>2</integer>
+			<key>maxDurability</key>
+			<integer>1</integer>
+			<key>buff</key>
+			<integer>2</integer>
+			<key>description</key>
+			<string>Makes pretty lights</string>
+			<key>name</key>
+			<string>Firecracker</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>stick</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>1</integer>
+			<key>maxDurability</key>
+			<integer>1</integer>
+			<key>buff</key>
+			<integer>2</integer>
+			<key>description</key>
+			<string>Baby&apos;s first weapon, very pointy</string>
+			<key>name</key>
+			<string>Stick</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>weapon</string>
+			<key>icon</key>
+			<string>leadPipe</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>6</integer>
+			<key>maxDurability</key>
+			<integer>5</integer>
+			<key>buff</key>
+			<integer>6</integer>
+			<key>description</key>
+			<string>Found it in a back alley. Is that a blood stain?</string>
+			<key>name</key>
+			<string>Lead Pipe</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>armor</string>
+			<key>icon</key>
+			<string>helmet</string>
+			<key>isAward</key>
+			<false/>
+			<key>spCost</key>
+			<integer>4</integer>
+			<key>maxDurability</key>
+			<integer>5</integer>
+			<key>buff</key>
+			<integer>4</integer>
+			<key>description</key>
+			<string>For protecting your noggin</string>
+			<key>name</key>
+			<string>Helmet</string>
+		</dict>
+	</array>
+</dict>
+</plist>
