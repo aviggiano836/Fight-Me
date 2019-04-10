@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AchievementHandler: NSObject {
+class AchievementHandler: NSObject { 
     
     var achievements: [Achievement]
     var currentAchievements: [Achievement]
