@@ -23,6 +23,7 @@
 		3F8A591E225BDF57002D68ED /* InventoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591D225BDF57002D68ED /* InventoryController.swift */; };
 		3F8A5920225BDFB9002D68ED /* NewUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591F225BDFB9002D68ED /* NewUserController.swift */; };
 		3F8A5922225BE0AC002D68ED /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5921225BE0AC002D68ED /* TabBarController.swift */; };
+		890E9BED225E856A00395D2D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E9BEC225E856A00395D2D /* CoreMotion.framework */; };
 		89CBCC9922553ACA009CF61B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBCC9822553ACA009CF61B /* AppDelegate.swift */; };
 		89CBCCA022553ACA009CF61B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CBCC9E22553ACA009CF61B /* Main.storyboard */; };
 		89CBCCA222553ACB009CF61B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89CBCCA122553ACB009CF61B /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		3F8A591D225BDF57002D68ED /* InventoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryController.swift; sourceTree = "<group>"; };
 		3F8A591F225BDFB9002D68ED /* NewUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserController.swift; sourceTree = "<group>"; };
 		3F8A5921225BE0AC002D68ED /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		890E9BEC225E856A00395D2D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		89CBCC9522553ACA009CF61B /* Fight Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fight Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CBCC9822553ACA009CF61B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CBCC9F22553ACA009CF61B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890E9BED225E856A00395D2D /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,11 +112,20 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		890E9BEB225E856A00395D2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				890E9BEC225E856A00395D2D /* CoreMotion.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		89CBCC8C22553ACA009CF61B = {
 			isa = PBXGroup;
 			children = (
 				89CBCC9722553ACA009CF61B /* Fight Me */,
 				89CBCC9622553ACA009CF61B /* Products */,
+				890E9BEB225E856A00395D2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

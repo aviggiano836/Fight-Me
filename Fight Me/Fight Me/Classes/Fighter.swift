@@ -28,7 +28,7 @@ class Fighter: FighterDetails {
     }
     
     func getFinessLevel() -> Int{
-        return fitnessLevel?
+        return fitnessLevel!
     }
     
     //creates a bundle with basic info used for calulating a fight

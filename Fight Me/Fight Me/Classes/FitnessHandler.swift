@@ -9,5 +9,16 @@
 import UIKit
 
 class FitnessHandler: NSObject {
+    var dailyActivityLevels:[Date:(Bool,Int)]
+    
+    
+    func updateStepsForToday(){
+        
+    }
+    
+    func updateStepsForDate(){
+        
+    }
+    
     
 }
