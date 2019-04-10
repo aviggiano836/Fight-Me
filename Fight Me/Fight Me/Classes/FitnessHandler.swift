@@ -27,5 +27,18 @@ class FitnessHandler: NSObject {
         
     }
     
+    @IBAction func test(_ sender: Any) {
+        getStepsFromPedometer()
+    }
+    func getStepsFromPedometer(){
+        print("im in")
+        if CMPedometer.isStepCountingAvailable() {
+            let calendar = Calendar.current
+            pedometer.queryPedometerData(from: calendar.startOfDay(for: Date()), to: Date()) { (data, error) in
+                print(data)
+            }
+        }
+    }
+    
     
 }
