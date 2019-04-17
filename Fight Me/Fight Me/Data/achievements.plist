@@ -6,13 +6,93 @@
 	<array>
 		<dict>
 			<key>icon</key>
+			<string>10Fights</string>
+			<key>award</key>
+			<string>Nunchucks</string>
+			<key>completed</key>
+			<false/>
+			<key>requirement</key>
+			<integer>10</integer>
+			<key>description</key>
+			<string>Betcha $20 bucks you can&apos;t</string>
+			<key>name</key>
+			<string>Win 10 Fights</string>
+			<key>type</key>
+			<string>fight</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>firstFight</string>
+			<key>award</key>
+			<string>10</string>
+			<key>completed</key>
+			<false/>
+			<key>requirement</key>
+			<integer>1</integer>
+			<key>description</key>
+			<string>There&apos;s a first time for everything</string>
+			<key>name</key>
+			<string>Win First Fight</string>
+			<key>type</key>
+			<string>fight</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>weeklyGoalMet</string>
+			<key>award</key>
+			<string>Coke and Mentos</string>
+			<key>completed</key>
+			<false/>
+			<key>requirement</key>
+			<integer>7</integer>
+			<key>description</key>
+			<string>Reach step goal all week</string>
+			<key>name</key>
+			<string>Step Goal Met All Week</string>
+			<key>type</key>
+			<string>stepGoal</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>firstStepGoal</string>
+			<key>award</key>
+			<string>Pet Rock</string>
+			<key>completed</key>
+			<false/>
+			<key>requirement</key>
+			<integer>1</integer>
+			<key>description</key>
+			<string>You got off the couch, good job</string>
+			<key>name</key>
+			<string>Reach First Step Goal</string>
+			<key>type</key>
+			<string>stepGoal</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>stabbyTheCrabby</string>
+			<key>award</key>
+			<string>One sick scar</string>
+			<key>completed</key>
+			<false/>
+			<key>requirement</key>
+			<integer>0</integer>
+			<key>description</key>
+			<string>Beaten by Stabby the Crabby</string>
+			<key>name</key>
+			<string>Stabby the Crabby</string>
+			<key>type</key>
+			<string>crabby</string>
+		</dict>
+		<dict>
+			<key>icon</key>
 			<string>reunited</string>
 			<key>award</key>
 			<string>15</string>
 			<key>completed</key>
 			<false/>
 			<key>requirement</key>
-			<string>1 Rock</string>
+			<integer>1</integer>
 			<key>description</key>
 			<string>Get your pet rock back</string>
 			<key>name</key>
@@ -28,7 +108,7 @@
 			<key>completed</key>
 			<false/>
 			<key>requirement</key>
-			<string>5 rocks</string>
+			<integer>5</integer>
 			<key>description</key>
 			<string>Steal all the pet rocks</string>
 			<key>name</key>
