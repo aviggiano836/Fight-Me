@@ -58,6 +58,17 @@ class Equipment: NSObject {
         return self.type
     }
     
+    func getTypeAsString() -> String{
+        switch self.type {
+        case EquipmentType.ARMOR:
+            return "ARMOR"
+        case EquipmentType.WEAPON:
+            return "WEAPON"
+        default:
+            return ""
+        }
+    }
+    
     func useEquipment() -> Int{
         self.currentDurability = self.currentDurability! - 1
         return self.currentDurability!
@@ -69,6 +80,14 @@ class Equipment: NSObject {
     
     func getIsAward() -> Bool {
         return self.isAward
+    }
+    
+    func getImagePath() -> String {
+        return self.imagePath!
+    }
+    
+    func getCost() -> Int {
+        return self.cost!
     }
     
     

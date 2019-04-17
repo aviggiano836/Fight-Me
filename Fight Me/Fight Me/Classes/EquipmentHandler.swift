@@ -9,11 +9,12 @@
 import UIKit
 
 class EquipmentHandler: NSObject {
-    var allEquipment: [String:Equipment]
-    var userEquipment: [String:Equipment]
+    var allEquipment: [String:Equipment] = [:]
+    var userEquipment: [String:Equipment] = [:]
     
     // Init EquipmentHandler with dictionary of available Equipment and user's current equipment
     init(allEquipment: [Equipment], userEquipment: [Equipment]) {
+        super.init()
         _initAllEquipment(equipment: allEquipment)
         _initUserEquipment(equipment: userEquipment)
         
@@ -21,6 +22,7 @@ class EquipmentHandler: NSObject {
     
     // Init EquipmentHandler with dictionary of available Equipment
     init(allEquipment: [Equipment]) {
+        super.init()
         _initAllEquipment(equipment: allEquipment)
         self.userEquipment = [:]
     }
