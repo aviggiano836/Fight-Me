@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ShopController: UIViewController {
+class ShopController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
