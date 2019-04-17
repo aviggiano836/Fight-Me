@@ -10,6 +10,8 @@ import UIKit
 
 class EquipmentDetailController: UIViewController {
     
+    var equipment: Equipment!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
