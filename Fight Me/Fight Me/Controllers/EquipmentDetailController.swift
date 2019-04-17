@@ -10,6 +10,13 @@ import UIKit
 
 class EquipmentDetailController: UIViewController {
     
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var maxDur: UILabel!
+    @IBOutlet weak var currDur: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    
     var equipment: Equipment!
     
     override func viewDidLoad() {
