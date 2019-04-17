@@ -13,15 +13,28 @@ class EquipmentHandler: NSObject {
     var userEquipment: [String:Equipment]
     
     // Init EquipmentHandler with dictionary of available Equipment and user's current equipment
-    init(allEquipment: [String:Equipment], userEquipment: [String:Equipment]) {
-        self.allEquipment = allEquipment
-        self.userEquipment = userEquipment
+    init(allEquipment: [Equipment], userEquipment: [Equipment]) {
+        _initAllEquipment(equipment: allEquipment)
+        _initUserEquipment(equipment: userEquipment)
+        
     }
     
     // Init EquipmentHandler with dictionary of available Equipment
-    init(allEquipment: [String:Equipment]) {
-        self.allEquipment = allEquipment
+    init(allEquipment: [Equipment]) {
+        _initAllEquipment(equipment: allEquipment)
         self.userEquipment = [:]
+    }
+    
+    func _initAllEquipment(equipment: [Equipment]){
+        for e in equipment {
+            self.allEquipment[e.getName()] = e
+        }
+    }
+    
+    func _initUserEquipment(equipment: [Equipment]){
+        for e in equipment {
+            self.userEquipment[e.getName()] = e
+        }
     }
     
     // Get an equipment base on it's name
