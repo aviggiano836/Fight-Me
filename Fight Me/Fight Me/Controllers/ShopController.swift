@@ -12,7 +12,21 @@ class ShopController: UITableViewController {
 
     @IBOutlet weak var display: UISegmentedControl?
     
-    var equipment: EquipmentHandler?
+    var equipmentHandler: EquipmentHandler?
+    var equipment: [Equipment] = []
+    
+    @IBAction func displayChanged(sender:UISegmentedControl){
+        switch self.display?.selectedSegmentIndex {
+        case 0:
+            self.equipment = (equipmentHandler?.getAllEquipment())!
+        case 1:
+            self.equipment = (equipmentHandler?.getEquipmentOfType(type: EquipmentType.WEAPON))!
+        case 2:
+            self.equipment = (equipmentHandler?.getEquipmentOfType(type: EquipmentType.ARMOR))!
+        default:
+            break
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,23 +47,26 @@ class ShopController: UITableViewController {
     //# of equipment being displayed
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch self.display?.selectedSegmentIndex {
-        case 0:
-            return (equipment?.allEquipment.count)!
-        default:
-            break
+            case 0:
+                return (equipmentHandler?.allEquipment.count)!
+            case 1:
+                return (equipmentHandler?.getEquipmentOfType(type: EquipmentType.WEAPON).count)!
+            case 2:
+                return (equipmentHandler?.getEquipmentOfType(type: EquipmentType.ARMOR).count)!
+            default:
+                return 0
         }
-        
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ShopCell", for: indexPath)
+        
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
