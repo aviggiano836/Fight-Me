@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("\(tempDict)")
             let tempArray = tempDict["Equipment"]! as! Array<[String:Any]>
             for dict in tempArray {
-                let type = dict["type"]! as! EquipmentType
+                let type =  dict["type"]! as! String
                 let icon = dict["icon"]! as! String
                 let isAward = dict["isAward"]! as! Bool
                 let spCost = dict["spCost"]! as! Int
@@ -48,22 +48,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let data = try Data(contentsOf: URL(fileURLWithPath: plistPath))
             let tempDict = try PropertyListSerialization.propertyList(from: data, format: nil) as! [String:Any]
             print("\(tempDict)")
-            let tempArray = tempDict["Fighter"]! as! Array<[String:Any]>
-            for dict in tempArray {
-                let skillPoints = dict["skillPoints"]! as! Int
-                let fitnessLevel = dict["fitnessLevel"]! as! Int
-                let stamina = dict["stamina"]! as! Int
+            let dict = tempDict["Fighter"]! as! [String:Any]
+            let skillPoints = dict["skillPoints"]! as! Int
+            let fitnessLevel = dict["fitnessLevel"]! as! Int
+            let stamina = dict["stamina"]! as! Int
                 
-                let weight = dict["weight"]! as! Double
-                let height = dict["height"]! as! Double
-                let birthday = dict["birthday"]! as! Date
-                let name = dict["name"]! as! String
+            let weight = dict["weight"]! as! Double
+            let height = dict["height"]! as! Double
+            let birthday = dict["birthday"]! as! Date
+            let name = dict["name"]! as! String
 
                 //TODO: get equipment
                 //TODO: get achievements
                 
-                self.fighter = Fighter(username: name, height: height, weight: weight, birthday: birthday, skillPoint: skillPoints, stamina: stamina, fitnessLevel: fitnessLevel)
-            }
+            self.fighter = Fighter(username: name, height: height, weight: weight, birthday: birthday, skillPoint: skillPoints, stamina: stamina, fitnessLevel: fitnessLevel)
+            
         } catch {
             print(error)
         }
@@ -86,7 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //set up inventory
         let InvNavVC = tabBarController!.viewControllers![1] as! UINavigationController
-        let InvTableVC = InvNavVC.viewControllers[0] as! ShopController
+        let InvTableVC = InvNavVC.viewControllers[0] as! InventoryController
+        InvTableVC.equipmentHandler = equipmentH
         
         //set up profile
         let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController

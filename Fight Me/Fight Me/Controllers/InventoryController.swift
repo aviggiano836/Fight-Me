@@ -62,7 +62,7 @@ class InventoryController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ShopCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath)
         
         let equipment = self.equipment[indexPath.row]
         cell.textLabel?.text = equipment.getName()
