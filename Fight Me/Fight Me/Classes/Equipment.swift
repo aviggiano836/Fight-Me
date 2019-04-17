@@ -20,18 +20,25 @@ class Equipment: NSObject {
     var currentDurability: Int?
     var name: String?
     var desc: String?
-    var type: EquipmentType
+    var type: EquipmentType?
     var buff: Int
     var cost: Int?
     var imagePath: String?
     var isAward: Bool
     
-    init(maxDurability:Int, currentDurability:Int, name:String, desc:String, type:EquipmentType, buff:Int, cost:Int, imagePath:String, isAward:Bool){
+    init(maxDurability:Int, currentDurability:Int, name:String, desc:String, type:String, buff:Int, cost:Int, imagePath:String, isAward:Bool){
         self.maxDurability = maxDurability
         self.currentDurability = currentDurability
         self.name = name
         self.desc = desc
-        self.type = type
+        switch type {
+            case "weapon":
+                self.type = EquipmentType.WEAPON
+            case "armor":
+                self.type = EquipmentType.ARMOR
+            default:
+                break
+        }
         self.buff = buff
         self.cost = cost
         self.imagePath = imagePath
@@ -55,17 +62,15 @@ class Equipment: NSObject {
     }
     
     func getType() -> EquipmentType {
-        return self.type
+        return self.type!
     }
     
     func getTypeAsString() -> String{
-        switch self.type {
-        case EquipmentType.ARMOR:
-            return "ARMOR"
-        case EquipmentType.WEAPON:
-            return "WEAPON"
-        default:
-            return ""
+        switch self.type! {
+            case EquipmentType.ARMOR:
+                return "ARMOR"
+            case EquipmentType.WEAPON:
+                return "WEAPON"
         }
     }
     
