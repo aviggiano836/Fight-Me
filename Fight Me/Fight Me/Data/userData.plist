@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   userData.plist
-   Fight Me
-
-   Created by Student on 4/8/19.
-   Copyright (c) 2019 Lauren DiDonato. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>Fighter</key>
+	<dict>
+		<key>achievements</key>
+		<array>
+			<string>Beaten by Stabby the Crabby</string>
+		</array>
+		<key>skillPoints</key>
+		<integer>3</integer>
+		<key>equipment</key>
+		<array>
+			<string>Stick</string>
+			<string>Potato Sack</string>
+		</array>
+		<key>fitnessLevel</key>
+		<integer>8</integer>
+		<key>stamina</key>
+		<integer>5</integer>
+		<key>birthday</key>
+		<string>7/1/97</string>
+		<key>weight</key>
+		<integer>120</integer>
+		<key>height</key>
+		<real>5.5</real>
+		<key>name</key>
+		<string>Boberson</string>
+	</dict>
+</dict>
 </plist>

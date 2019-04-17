@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var tabBarController: UITabBarController?
     var allEquipment: [Equipment] = []
+    var fighter: Fighter?
 
     func loadEquipment(){
         do {
@@ -34,11 +35,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 //you need to provide all of the values from the plist and possibly modify the initializer with any new values...
                 let e = Equipment(maxDurability:maxDurability, currentDurability:maxDurability, name:name, desc:desc, type:type, buff:buff, cost:spCost, imagePath:icon, isAward:isAward)
-                
                 allEquipment.append(e)
             }
-            
-            
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadUser(){
+        do {
+            let plistPath = Bundle.main.path(forResource: "userData", ofType: "plist")!
+            let data = try Data(contentsOf: URL(fileURLWithPath: plistPath))
+            let tempDict = try PropertyListSerialization.propertyList(from: data, format: nil) as! [String:Any]
+            print("\(tempDict)")
+            let tempArray = tempDict["Fighter"]! as! Array<[String:Any]>
+            for dict in tempArray {
+                let skillPoints = dict["skillPoints"]! as! Int
+                let fitnessLevel = dict["fitnessLevel"]! as! Int
+                let stamina = dict["stamina"]! as! Int
+                
+                let weight = dict["weight"]! as! Double
+                let height = dict["height"]! as! Double
+                let birthday = dict["birthday"]! as! Date
+                let name = dict["name"]! as! String
+
+                //get equipment
+                //get achievements
+                
+                self.fighter = Fighter(username: name, height: height, weight: weight, birthday: birthday)
+            }
         } catch {
             print(error)
         }
@@ -47,8 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         loadEquipment()
+        loadUser()
         tabBarController = window?.rootViewController as? UITabBarController
-        //let equipmentH = EquipmentHandler(allEquipment: allEquipment)
+        let equipmentH = EquipmentHandler(allEquipment: allEquipment)
         
         //set up shop
         let ShopNavVC = tabBarController!.viewControllers![2] as! UINavigationController
