@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   achievements.plist
-   Fight Me
-
-   Created by Student on 4/8/19.
-   Copyright (c) 2019 Lauren DiDonato. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>Achievement</key>
+	<array>
+		<dict>
+			<key>icon</key>
+			<string>reunited</string>
+			<key>award</key>
+			<string>15</string>
+			<key>completed</key>
+			<false/>
+			<key>requirement</key>
+			<string>1 Rock</string>
+			<key>description</key>
+			<string>Get your pet rock back</string>
+			<key>name</key>
+			<string>Reunited</string>
+			<key>type</key>
+			<string>rock</string>
+		</dict>
+		<dict>
+			<key>icon</key>
+			<string>rockNRoll</string>
+			<key>award</key>
+			<string>Brass Knuckles</string>
+			<key>completed</key>
+			<false/>
+			<key>requirement</key>
+			<string>5 rocks</string>
+			<key>description</key>
+			<string>Steal all the pet rocks</string>
+			<key>name</key>
+			<string>Rock&apos;n&apos;Roll</string>
+			<key>type</key>
+			<string>rock</string>
+		</dict>
+	</array>
+</dict>
 </plist>
