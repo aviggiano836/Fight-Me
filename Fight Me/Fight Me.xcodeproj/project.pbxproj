@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F237BD42267A99100BB8104 /* EquipmentDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F237BD32267A99100BB8104 /* EquipmentDetailController.swift */; };
+		3F237BD62267AB2D00BB8104 /* ShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F237BD52267AB2D00BB8104 /* ShopController.swift */; };
 		3F8A5904225BDDE3002D68ED /* shop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A5903225BDDE3002D68ED /* shop.plist */; };
 		3F8A5906225BDDF7002D68ED /* achievements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A5905225BDDF7002D68ED /* achievements.plist */; };
 		3F8A5908225BDE24002D68ED /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A5907225BDE24002D68ED /* userData.plist */; };
@@ -17,7 +19,6 @@
 		3F8A5912225BDEB4002D68ED /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5911225BDEB4002D68ED /* Achievement.swift */; };
 		3F8A5914225BDEC5002D68ED /* EquipmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5913225BDEC5002D68ED /* EquipmentHandler.swift */; };
 		3F8A5916225BDED1002D68ED /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5915225BDED1002D68ED /* Equipment.swift */; };
-		3F8A5918225BDEFF002D68ED /* ShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5917225BDEFF002D68ED /* ShopController.swift */; };
 		3F8A591A225BDF37002D68ED /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5919225BDF37002D68ED /* ProfileController.swift */; };
 		3F8A591C225BDF4A002D68ED /* FightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591B225BDF4A002D68ED /* FightController.swift */; };
 		3F8A591E225BDF57002D68ED /* InventoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591D225BDF57002D68ED /* InventoryController.swift */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F237BD32267A99100BB8104 /* EquipmentDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailController.swift; sourceTree = "<group>"; };
+		3F237BD52267AB2D00BB8104 /* ShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopController.swift; sourceTree = "<group>"; };
 		3F8A5903225BDDE3002D68ED /* shop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = shop.plist; sourceTree = "<group>"; };
 		3F8A5905225BDDF7002D68ED /* achievements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = achievements.plist; sourceTree = "<group>"; };
 		3F8A5907225BDE24002D68ED /* userData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = userData.plist; sourceTree = "<group>"; };
@@ -41,7 +44,6 @@
 		3F8A5911225BDEB4002D68ED /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		3F8A5913225BDEC5002D68ED /* EquipmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentHandler.swift; sourceTree = "<group>"; };
 		3F8A5915225BDED1002D68ED /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
-		3F8A5917225BDEFF002D68ED /* ShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopController.swift; sourceTree = "<group>"; };
 		3F8A5919225BDF37002D68ED /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		3F8A591B225BDF4A002D68ED /* FightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightController.swift; sourceTree = "<group>"; };
 		3F8A591D225BDF57002D68ED /* InventoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryController.swift; sourceTree = "<group>"; };
@@ -71,12 +73,13 @@
 		3F8A58FF225BDD83002D68ED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3F8A5917225BDEFF002D68ED /* ShopController.swift */,
 				3F8A5919225BDF37002D68ED /* ProfileController.swift */,
 				3F8A591B225BDF4A002D68ED /* FightController.swift */,
 				3F8A591D225BDF57002D68ED /* InventoryController.swift */,
 				3F8A591F225BDFB9002D68ED /* NewUserController.swift */,
 				3F8A5921225BE0AC002D68ED /* TabBarController.swift */,
+				3F237BD32267A99100BB8104 /* EquipmentDetailController.swift */,
+				3F237BD52267AB2D00BB8104 /* ShopController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -231,15 +234,16 @@
 				3F8A591C225BDF4A002D68ED /* FightController.swift in Sources */,
 				3F8A590A225BDE49002D68ED /* Fighter.swift in Sources */,
 				89CBCC9922553ACA009CF61B /* AppDelegate.swift in Sources */,
+				3F237BD62267AB2D00BB8104 /* ShopController.swift in Sources */,
 				3F8A5920225BDFB9002D68ED /* NewUserController.swift in Sources */,
 				3F8A5916225BDED1002D68ED /* Equipment.swift in Sources */,
 				3F8A5910225BDE96002D68ED /* AchievementHandler.swift in Sources */,
 				3F8A5912225BDEB4002D68ED /* Achievement.swift in Sources */,
+				3F237BD42267A99100BB8104 /* EquipmentDetailController.swift in Sources */,
 				3F8A591E225BDF57002D68ED /* InventoryController.swift in Sources */,
 				3F8A590C225BDE59002D68ED /* FighterDetails.swift in Sources */,
 				3F8A590E225BDE7B002D68ED /* FitnessHandler.swift in Sources */,
 				3F8A5914225BDEC5002D68ED /* EquipmentHandler.swift in Sources */,
-				3F8A5918225BDEFF002D68ED /* ShopController.swift in Sources */,
 				3F8A591A225BDF37002D68ED /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,8 +30,13 @@ class EquipmentHandler: NSObject {
     }
     
     // Get all the equipment available
-    func getAllEquipment() -> [String:Equipment] {
-        return self.allEquipment
+    func getAllEquipment() -> [Equipment] {
+        var temp: [Equipment] = []
+        for name in self.allEquipment.keys {
+            temp.append(self.allEquipment[name]!)
+        }
+        
+        return temp
     }
     
     // Get all the equipment with the matching type
@@ -71,8 +76,13 @@ class EquipmentHandler: NSObject {
     }
     
     // Return all the user's equipment
-    func getUserEquipment() -> [String:Equipment] {
-        return self.userEquipment
+    func getUserEquipment() -> [Equipment] {
+        var temp: [Equipment] = []
+        for name in self.userEquipment.keys {
+            temp.append(self.userEquipment[name]!)
+        }
+        
+        return temp
     }
     
     // Return all the user's equipment with the matching type
