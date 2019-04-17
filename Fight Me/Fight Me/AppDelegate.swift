@@ -48,13 +48,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         loadEquipment()
         tabBarController = window?.rootViewController as? UITabBarController
-        let ShopNavVC = tabBarController!.viewControllers![2] as! UINavigationController
         //let equipmentH = EquipmentHandler(allEquipment: allEquipment)
         
+        //set up shop
+        let ShopNavVC = tabBarController!.viewControllers![2] as! UINavigationController
         let ShopTableVC = ShopNavVC.viewControllers[0] as! ShopController
-        //ShopVC.
+        ShopTableVC.equipmentHandler = equipmentH
         
-        
+        //set up inventory
+        let InvNavVC = tabBarController!.viewControllers![1] as! UINavigationController
+        let InvTableVC = InvNavVC.viewControllers[0] as! ShopController
         
         
         
