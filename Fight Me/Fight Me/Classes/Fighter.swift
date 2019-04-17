@@ -22,6 +22,13 @@ class Fighter: FighterDetails {
         super.init(username:username,height:height,weight:weight,birthday:birthday)
         fitnessLevel = super.calculateBaseFitnessLevel()
     }
+    
+    init(username:String, height:Double, weight:Double, birthday:Date, skillPoint: Int, stamina: Int, fitnessLevel: Int) {
+        super.init(username:username,height:height,weight:weight,birthday:birthday)
+        self.fitnessLevel = fitnessLevel
+        self.stamina = stamina
+        self.skillPoint = skillPoint
+    }
 
     func calculateFitnessLevel(){
         //TODO
