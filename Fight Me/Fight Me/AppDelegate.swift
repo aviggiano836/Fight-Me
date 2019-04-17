@@ -59,10 +59,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let birthday = dict["birthday"]! as! Date
                 let name = dict["name"]! as! String
 
-                //get equipment
-                //get achievements
+                //TODO: get equipment
+                //TODO: get achievements
                 
-                self.fighter = Fighter(username: name, height: height, weight: weight, birthday: birthday)
+                self.fighter = Fighter(username: name, height: height, weight: weight, birthday: birthday, skillPoint: skillPoints, stamina: stamina, fitnessLevel: fitnessLevel)
             }
         } catch {
             print(error)
@@ -72,7 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         loadEquipment()
+        
+        //only if user exists alread
         loadUser()
+        
         tabBarController = window?.rootViewController as? UITabBarController
         let equipmentH = EquipmentHandler(allEquipment: allEquipment)
         
@@ -85,8 +88,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let InvNavVC = tabBarController!.viewControllers![1] as! UINavigationController
         let InvTableVC = InvNavVC.viewControllers[0] as! ShopController
         
-        
-        
+        //set up profile
+        let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController
+        ProfileVC.fighter = fighter
+
         return true
     }
 

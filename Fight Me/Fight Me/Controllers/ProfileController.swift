@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileController: UIViewController {
 
+    var fighter: Fighter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
