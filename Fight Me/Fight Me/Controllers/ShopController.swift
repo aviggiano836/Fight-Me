@@ -33,7 +33,8 @@ class ShopController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.equipment = (equipmentHandler?.getAllEquipment())!
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -77,10 +78,13 @@ class ShopController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let indexPath = tableView.indexPathForSelectedRow
         
+        print("Equipment Selected as row: \(indexPath!.row)")
         let equipment = self.equipment[indexPath!.row]
         let equipmentDetail = segue.destination as! EquipmentDetailController
         equipmentDetail.equipment = equipment
         
+        
+        equipmentDetail.title = equipment.getName()
     }
     
 
