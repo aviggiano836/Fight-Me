@@ -24,8 +24,9 @@ class Equipment: NSObject {
     var buff: Int
     var cost: Int?
     var imagePath: String?
+    var isAward: Bool
     
-    init(maxDurability:Int, currentDurability:Int, name:String, desc:String, type:EquipmentType, buff:Int, cost:Int, imagePath:String){
+    init(maxDurability:Int, currentDurability:Int, name:String, desc:String, type:EquipmentType, buff:Int, cost:Int, imagePath:String, isAward:Bool){
         self.maxDurability = maxDurability
         self.currentDurability = currentDurability
         self.name = name
@@ -34,6 +35,7 @@ class Equipment: NSObject {
         self.buff = buff
         self.cost = cost
         self.imagePath = imagePath
+        self.isAward = isAward
     }
     
     func getName() -> String{
@@ -63,6 +65,10 @@ class Equipment: NSObject {
     
     func getBuff() -> Int {
         return self.buff
+    }
+    
+    func getIsAward() -> Bool {
+        return self.isAward
     }
     
     

@@ -12,10 +12,52 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var tabBarController: UITabBarController?
+    var allEquipment: [Equipment] = []
 
+    func loadEquipment(){
+        do {
+            let plistPath = Bundle.main.path(forResource: "shop", ofType: "plist")!
+            let data = try Data(contentsOf: URL(fileURLWithPath: plistPath))
+            let tempDict = try PropertyListSerialization.propertyList(from: data, format: nil) as! [String:Any]
+            print("\(tempDict)")
+            let tempArray = tempDict["Equipment"]! as! Array<[String:Any]>
+            for dict in tempArray {
+                let type = dict["type"]! as! EquipmentType
+                let icon = dict["icon"]! as! String
+                let isAward = dict["isAward"]! as! Bool
+                let spCost = dict["spCost"]! as! Int
+                let maxDurability = dict["maxDurability"]! as! Int
+                let buff = dict["buff"]! as! Int
+                let desc = dict["description"]! as! String
+                let name = dict["name"]! as! String
+                
+                //you need to provide all of the values from the plist and possibly modify the initializer with any new values...
+                let e = Equipment(maxDurability:maxDurability, currentDurability:maxDurability, name:name, desc:desc, type:type, buff:buff, cost:spCost, imagePath:icon, isAward:isAward)
+                
+                allEquipment.append(e)
+            }
+            
+            
+        } catch {
+            print(error)
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        loadEquipment()
+        tabBarController = window?.rootViewController as? UITabBarController
+        let ShopNavVC = tabBarController!.viewControllers![2] as! UINavigationController
+        //let equipmentH = EquipmentHandler(allEquipment: allEquipment)
+        
+        let ShopTableVC = ShopNavVC.viewControllers[0] as! ShopController
+        //ShopVC.
+        
+        
+        
+        
+        
         return true
     }
 

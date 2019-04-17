@@ -40,7 +40,5 @@ class Fighter: FighterDetails {
     func getEquiped() -> (Equipment,Equipment){
         return equiped!
     }
-    
-    
 
 }

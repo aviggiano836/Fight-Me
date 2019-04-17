@@ -34,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0T6-1f-msS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2972" y="-401.64917541229386"/>
+            <point key="canvasLocation" x="2033" y="-369"/>
         </scene>
         <!--Fight-->
         <scene sceneID="hNz-n2-bh7">
@@ -205,8 +205,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="N77-eP-A1i">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="C9i-9j-k4H">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="C9i-9j-k4H">
+                            <rect key="frame" x="68" y="7" width="239" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All"/>
