@@ -24,10 +24,10 @@ class Fighter: FighterDetails {
     }
 
     func calculateFitnessLevel(){
-        
+        //TODO
     }
     
-    func getFinessLevel() -> Int{
+    func getFitnessLevel() -> Int{
         return fitnessLevel!
     }
     

@@ -25,7 +25,6 @@ class FighterDetails: NSObject {
     
     //updates fitness level
     func calculateBaseFitnessLevel() -> Int {
-        //TODO
         let bmi = self.getBMI()
         if( 18 < bmi && bmi < 24.9 ){               //normal weight, no change
             return baseFitnessLevel
