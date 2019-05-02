@@ -17,8 +17,7 @@ class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("HERE: setting text \(fitnessHandler.getStepsForToday())")
-        steps.text = String(fitnessHandler.getStepsForToday())
+        steps.text = String(Int(fitnessHandler.getStepsForToday()))
 
         // Do any additional setup after loading the view.
     }

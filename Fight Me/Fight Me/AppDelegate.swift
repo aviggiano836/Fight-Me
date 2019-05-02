@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let plistPath = Bundle.main.path(forResource: "shop", ofType: "plist")!
             let data = try Data(contentsOf: URL(fileURLWithPath: plistPath))
             let tempDict = try PropertyListSerialization.propertyList(from: data, format: nil) as! [String:Any]
-            print("\(tempDict)")
             let tempArray = tempDict["Equipment"]! as! Array<[String:Any]>
             for dict in tempArray {
                 let type =  dict["type"]! as! String
@@ -42,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    /*func loadUser(){
+    func loadUser(){
         do {
             let plistPath = Bundle.main.path(forResource: "userData", ofType: "plist")!
             let data = try Data(contentsOf: URL(fileURLWithPath: plistPath))
@@ -66,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print(error)
         }
-    }*/
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -74,15 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fh = FitnessHandler()
         fh.askHealthPermission()
         fh.updateSteps()
+        Thread.sleep(forTimeInterval: 3.0)
         
         
         loadEquipment()
         
         //load user
-        if(UserDefaults.standard.string(forKey: "user") == nil){
+        if(UserDefaults.standard.string(forKey: "user") != nil){
             //create user
         }else{
-            let username = UserDefaults.standard.string(forKey: "user")
+            /*let username = UserDefaults.standard.string(forKey: "user")
             let height = UserDefaults.standard.double(forKey: "height")
             let weight = UserDefaults.standard.double(forKey: "weight")
             let birthday = UserDefaults.standard.string(forKey: "birthday")
@@ -95,8 +95,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
             let date = dateFormatter.date(from: birthday!)
             let fighter = Fighter(username: username!, height: height, weight: weight, birthday: date!, skillPoint: skillPoint, stamina: stamina, fitnessLevel: fitnessLevel)
+            */
+            loadUser()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "returningFighter")
+            self.window?.rootViewController = initialViewController
             
-            tabBarController = window?.rootViewController as? UITabBarController
+            tabBarController = initialViewController as! TabBarController
             let equipmentH = EquipmentHandler(allEquipment: allEquipment)
             
             //set up shop
