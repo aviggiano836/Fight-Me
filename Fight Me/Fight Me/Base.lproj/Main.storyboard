@@ -51,7 +51,7 @@
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Ne-Xk-JDR">
                                 <rect key="frame" x="66" y="205" width="243" height="2"/>
-                                <color key="tintColor" red="0.057633362710475922" green="0.874991774559021" blue="0.11033359915018082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.058823529411764705" green="0.87450980392156863" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mm7-Kd-kxo">
                                 <rect key="frame" x="66" y="243" width="243" height="2"/>
@@ -371,25 +371,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Fight" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="148.5" y="312" width="78.5" height="43"/>
+                                <rect key="frame" x="148" y="312" width="79" height="43"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="90.5" y="363" width="194.5" height="17"/>
+                                <rect key="frame" x="90" y="363" width="195" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stabby.png" translatesAutoresizingMaskIntoConstraints="NO" id="I5k-jW-S5X">
+                                <rect key="frame" x="-284" y="100" width="943" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Kqe-8f-Lzn"/>
+                                    <constraint firstAttribute="width" constant="943" id="MNT-z0-MUz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
+                            <constraint firstItem="I5k-jW-S5X" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Z4Y-J5-W08"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="I5k-jW-S5X" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="80" id="p1W-EP-lMW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -397,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="-370"/>
+            <point key="canvasLocation" x="1117.5999999999999" y="-370.16491754122939"/>
         </scene>
         <!--Splash PageVC-->
         <scene sceneID="iim-ur-3LX">
@@ -682,6 +691,7 @@
         <image name="ninja" width="32" height="32"/>
         <image name="school" width="32" height="32"/>
         <image name="shop" width="32" height="32"/>
+        <image name="stabby.png" width="943" height="800"/>
         <image name="swords" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
