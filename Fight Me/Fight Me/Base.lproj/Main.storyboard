@@ -158,6 +158,14 @@
                                 <color key="textColor" red="0.15686274509803921" green="0.8666666666666667" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sB6-LY-Fa8">
+                                <rect key="frame" x="72" y="147" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3by-eL-jJm">
+                                <rect key="frame" x="252" y="147" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -199,6 +207,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="ninja" selectedImage="ninja" id="BdX-Yu-uEu"/>
                     <connections>
+                        <outlet property="armorImage" destination="3by-eL-jJm" id="9Pi-co-WBV"/>
                         <outlet property="fitnessLevelBar" destination="7Ne-Xk-JDR" id="73f-Y5-2HL"/>
                         <outlet property="fitnessLevelLabel" destination="ccf-bG-0wZ" id="gN9-Zy-ELN"/>
                         <outlet property="heightLabel" destination="vis-c3-FLW" id="o9d-7Z-yDh"/>
@@ -206,6 +215,7 @@
                         <outlet property="skillPointsLabel" destination="MbY-HA-oQe" id="D3m-oJ-vBb"/>
                         <outlet property="staminaBar" destination="mm7-Kd-kxo" id="IVq-f4-BQ5"/>
                         <outlet property="steps" destination="I8y-A7-7lz" id="A3m-5b-Hkg"/>
+                        <outlet property="weaponImage" destination="sB6-LY-Fa8" id="9yx-Ik-ch1"/>
                         <outlet property="weightLabel" destination="zlj-DV-Ydw" id="uoo-HE-sq8"/>
                     </connections>
                 </viewController>

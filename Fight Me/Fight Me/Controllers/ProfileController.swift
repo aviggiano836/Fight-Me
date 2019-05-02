@@ -19,6 +19,9 @@ class ProfileController: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
+    @IBOutlet weak var weaponImage: UIImageView!
+    @IBOutlet weak var armorImage: UIImageView!
+    
     @IBOutlet weak var fitnessLevelBar: UIProgressView!
     @IBOutlet weak var staminaBar: UIProgressView!
     
