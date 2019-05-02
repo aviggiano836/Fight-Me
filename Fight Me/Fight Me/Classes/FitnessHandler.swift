@@ -29,6 +29,7 @@ class FitnessHandler: NSObject {
     }
     
     private func setCurrSteps(steps:Double){
+        print("HERE: setting steps \(steps)")
         self.currSteps = steps
     }
     
