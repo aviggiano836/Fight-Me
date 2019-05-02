@@ -34,19 +34,7 @@ class SplashPageVC: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "returingFighter" {
             //load user info
-            let username = UserDefaults.standard.string(forKey: "user")
-            let height = UserDefaults.standard.double(forKey: "height")
-            let weight = UserDefaults.standard.double(forKey: "weight")
-            let birthday = UserDefaults.standard.string(forKey: "birthday")
-            let skillPoint = UserDefaults.standard.integer(forKey: "skillPoint")
-            let stamina = UserDefaults.standard.integer(forKey: "stamina")
-            let fitnessLevel = UserDefaults.standard.integer(forKey: "fitnessLevel")
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-            let date = dateFormatter.date(from: birthday!)
-            let fighter = Fighter(username: username!, height: height, weight: weight, birthday: date!, skillPoint: skillPoint, stamina: stamina, fitnessLevel: fitnessLevel)
             
             
             let vc = segue.destination as! TabBarController
