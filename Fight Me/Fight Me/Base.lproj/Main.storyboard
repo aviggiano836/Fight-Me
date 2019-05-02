@@ -148,10 +148,13 @@
                         <viewLayoutGuide key="safeArea" id="h1Y-gi-NZF"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="ninja" selectedImage="ninja" id="BdX-Yu-uEu"/>
+                    <connections>
+                        <outlet property="steps" destination="I8y-A7-7lz" id="A3m-5b-Hkg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0T6-1f-msS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119" y="-1035"/>
+            <point key="canvasLocation" x="1117.5999999999999" y="-1035.832083958021"/>
         </scene>
         <!--newFighter-->
         <scene sceneID="JOQ-w1-Lgl">

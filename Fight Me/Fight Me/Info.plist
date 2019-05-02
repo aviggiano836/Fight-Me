@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Need to get steps from health kit</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Need to get steps from health kit</string>
 	<key>NSMotionUsageDescription</key>
 	<string>In order to count steps I need an access to your pedometer</string>
 	<key>CFBundleDevelopmentRegion</key>

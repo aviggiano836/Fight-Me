@@ -70,6 +70,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //steps
+        let fh = FitnessHandler()
+        fh.askHealthPermission()
+        fh.updateSteps()
+        
+        
         loadEquipment()
         
         //load user
@@ -91,10 +97,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             InvTableVC.equipmentHandler = equipmentH
             
             //set up profile
-            //let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController
-            //ProfileVC.fighter = fighter
-            let fh = FitnessHandler()
-            fh.getStepsFromPedometer()
+            let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController
+            ProfileVC.fighter = fighter
+            ProfileVC.fitnessHandler = fh
         }
         
         return true
