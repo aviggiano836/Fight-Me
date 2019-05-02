@@ -12,8 +12,13 @@ class ProfileController: UIViewController {
 
     var fighter: Fighter?
     
+    @IBOutlet weak var steps: UILabel!
+    var fitnessHandler = FitnessHandler()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("HERE: \(fitnessHandler.getStepsForToday())")
+        steps.text = String(fitnessHandler.getStepsForToday())
 
         // Do any additional setup after loading the view.
     }

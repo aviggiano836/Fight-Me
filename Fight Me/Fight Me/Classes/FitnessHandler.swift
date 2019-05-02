@@ -14,48 +14,73 @@ class FitnessHandler: NSObject {
     
     //app variables
     var dailyActivityLevels:[Date:(Bool,Int)] = [:]
+    private var currSteps: Double = 0.0
     
     
     //pedometer variables
     private let activityManager = CMMotionActivityManager()
     private let pedometer = CMPedometer()
+    private let healthStore = HKHealthStore()
     
-    func updateStepsForToday(){
-        
+
+    func getStepsForToday() -> Double{
+        updateSteps()   //will not finish for a while
+        return self.currSteps
     }
     
-    func updateStepsForDate(){
-        
+    private func setCurrSteps(steps:Double){
+        self.currSteps = steps
     }
     
-    @IBAction func test(_ sender: Any) {
-        getStepsFromPedometer()
-    }
-    func getStepsFromPedometer(){
-        pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
-            if let pedData = pedometerData{
-                print("Steps:\(pedData.numberOfSteps)")
+    func askHealthPermission(){
+        let healthKitTypes: Set = [
+            // access step count
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
+        ]
+        healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (_, _) in
+            print("authorised???")
+        }
+        healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (bool, error) in
+            if let e = error {
+                print("oops something went wrong during authorisation \(e.localizedDescription)")
             } else {
-                print("Steps: Not Available")
+                print("User has completed the authorization flow")
             }
-        })
+        }
     }
-    let healthStore = HKHealthStore()
-    
-    func getTodaysSteps() {
+    private func getTodaysSteps(completion: @escaping (Double) -> Void) {
+        
         let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
         
         let now = Date()
         let startOfDay = Calendar.current.startOfDay(for: now)
         let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
         
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
-            guard let result = result, let sum = result.sumQuantity() else {
+        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { (_, result, error) in
+            var resultCount = 0.0
+            guard let result = result else {
+                print("Failed to fetch steps rate")
+                completion(resultCount)
                 return
             }
-            print(sum.doubleValue(for: HKUnit.count()))
+            if let sum = result.sumQuantity() {
+                resultCount = sum.doubleValue(for: HKUnit.count())
+            }
+            
+            DispatchQueue.main.async {
+                completion(resultCount)
+            }
         }
         healthStore.execute(query)
+    }
+    func updateSteps(){
+        getTodaysSteps { (result) in
+            self.setCurrSteps(steps:result)
+            DispatchQueue.main.async {
+                print("Total Steps: \(result)")
+                self.setCurrSteps(steps: result)
+            }
+        }
     }
     
     
