@@ -29,7 +29,7 @@ class EquipmentDetailController: UIViewController {
         maxDur.text = String(equipment.getMaxDurability())
         currDur.text = String(equipment.getCurrentDurability())
         cost.text = String(equipment.getCost())
-        image.image = UIImage(contentsOfFile: equipment.getImagePath())
+        //image.image = UIImage(contentsOfFile: equipment.getImagePath())
         
         // Do any additional setup after loading the view.
     }

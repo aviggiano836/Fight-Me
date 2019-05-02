@@ -76,9 +76,12 @@ class InventoryController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let indexPath = tableView.indexPathForSelectedRow
         
+        print("Equipment Selected as row: \(indexPath!.row)")
         let equipment = self.equipment[indexPath!.row]
         let equipmentDetail = segue.destination as! EquipmentDetailController
         equipmentDetail.equipment = equipment
         
+        
+        equipmentDetail.title = equipment.getName()
     }
 }

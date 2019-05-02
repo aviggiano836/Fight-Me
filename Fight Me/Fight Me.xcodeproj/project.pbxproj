@@ -24,6 +24,8 @@
 		3F8A591E225BDF57002D68ED /* InventoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591D225BDF57002D68ED /* InventoryController.swift */; };
 		3F8A5920225BDFB9002D68ED /* NewUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591F225BDFB9002D68ED /* NewUserController.swift */; };
 		3F8A5922225BE0AC002D68ED /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5921225BE0AC002D68ED /* TabBarController.swift */; };
+		3F9F7D1A227B4DF900A7A709 /* crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9F7D19227B4DF600A7A709 /* crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png */; };
+		3F9F7D1D227B4E7700A7A709 /* SplashPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F7D1C227B4E7700A7A709 /* SplashPageVC.swift */; };
 		890E9BED225E856A00395D2D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E9BEC225E856A00395D2D /* CoreMotion.framework */; };
 		89CBCC9922553ACA009CF61B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBCC9822553ACA009CF61B /* AppDelegate.swift */; };
 		89CBCCA022553ACA009CF61B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CBCC9E22553ACA009CF61B /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		3F8A591D225BDF57002D68ED /* InventoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryController.swift; sourceTree = "<group>"; };
 		3F8A591F225BDFB9002D68ED /* NewUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserController.swift; sourceTree = "<group>"; };
 		3F8A5921225BE0AC002D68ED /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3F9F7D19227B4DF600A7A709 /* crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png"; sourceTree = "<group>"; };
+		3F9F7D1C227B4E7700A7A709 /* SplashPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPageVC.swift; sourceTree = "<group>"; };
 		890E9BEC225E856A00395D2D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		89CBCC9522553ACA009CF61B /* Fight Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fight Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CBCC9822553ACA009CF61B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 				3F8A5921225BE0AC002D68ED /* TabBarController.swift */,
 				3F237BD32267A99100BB8104 /* EquipmentDetailController.swift */,
 				3F237BD52267AB2D00BB8104 /* ShopController.swift */,
+				3F9F7D1C227B4E7700A7A709 /* SplashPageVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -98,13 +103,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		3F8A5901225BDDB9002D68ED /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Icons;
-			sourceTree = "<group>";
-		};
 		3F8A5902225BDDC1002D68ED /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +111,14 @@
 				3F8A5907225BDE24002D68ED /* userData.plist */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		3F9F7D1B227B4E0E00A7A709 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				3F9F7D19227B4DF600A7A709 /* crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		890E9BEB225E856A00395D2D /* Frameworks */ = {
@@ -143,8 +149,8 @@
 		89CBCC9722553ACA009CF61B /* Fight Me */ = {
 			isa = PBXGroup;
 			children = (
+				3F9F7D1B227B4E0E00A7A709 /* Media */,
 				3F8A5902225BDDC1002D68ED /* Data */,
-				3F8A5901225BDDB9002D68ED /* Icons */,
 				3F8A5900225BDD9F002D68ED /* Classes */,
 				3F8A58FF225BDD83002D68ED /* Controllers */,
 				89CBCC9822553ACA009CF61B /* AppDelegate.swift */,
@@ -220,6 +226,7 @@
 				3F8A5904225BDDE3002D68ED /* shop.plist in Resources */,
 				89CBCCA222553ACB009CF61B /* Assets.xcassets in Resources */,
 				89CBCCA022553ACA009CF61B /* Main.storyboard in Resources */,
+				3F9F7D1A227B4DF900A7A709 /* crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +251,7 @@
 				3F8A590C225BDE59002D68ED /* FighterDetails.swift in Sources */,
 				3F8A590E225BDE7B002D68ED /* FitnessHandler.swift in Sources */,
 				3F8A5914225BDEC5002D68ED /* EquipmentHandler.swift in Sources */,
+				3F9F7D1D227B4E7700A7A709 /* SplashPageVC.swift in Sources */,
 				3F8A591A225BDF37002D68ED /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
