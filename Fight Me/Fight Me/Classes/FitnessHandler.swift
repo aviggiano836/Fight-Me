@@ -29,7 +29,6 @@ class FitnessHandler: NSObject {
     }
     
     private func setCurrSteps(steps:Double){
-        print("HERE: setting steps \(steps)")
         self.currSteps = steps
     }
     
@@ -39,13 +38,13 @@ class FitnessHandler: NSObject {
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
         ]
         healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (_, _) in
-            print("authorised???")
+            print("Checking HealthKit Authorization...")
         }
         healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (bool, error) in
             if let e = error {
                 print("oops something went wrong during authorisation \(e.localizedDescription)")
             } else {
-                print("User has completed the authorization flow")
+                print("User has completed the authorization flow for HealthKit")
             }
         }
     }

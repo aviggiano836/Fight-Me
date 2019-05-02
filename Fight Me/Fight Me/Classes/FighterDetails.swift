@@ -31,6 +31,9 @@ class FighterDetails: NSObject {
         } else if ( 25 < bmi && bmi < 29.9 ) {      //overweight
             return baseFitnessLevel - 4
             
+        } else if ( 12 < bmi && bmi < 17.9) {      //underweight
+            return baseFitnessLevel - 4
+    
         } else if ( 30 < bmi && bmi < 39.9 ){       //obese
             return baseFitnessLevel - 6
             
@@ -41,7 +44,8 @@ class FighterDetails: NSObject {
     }
     
     func calculateBMI(){
-        bmi = (weight/(height*height)) * 703
+        let temp = height * 12
+        bmi = ((weight * 703) / (temp*temp))
     }
     
     func updateHeight(newHeight:Double){
@@ -50,7 +54,7 @@ class FighterDetails: NSObject {
     }
     
     func updateWeight(newWeight:Double){
-        self.height = newWeight
+        self.weight = newWeight
         self.calculateBMI()
     }
     
@@ -63,6 +67,7 @@ class FighterDetails: NSObject {
     }
     
     func getBMI() -> Double {
+        calculateBMI()
         return bmi!
     }
 

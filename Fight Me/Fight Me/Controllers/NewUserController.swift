@@ -35,7 +35,7 @@ class NewUserController: UIViewController, UITextFieldDelegate {
             //create user
             //calculate height from ft and in to just ft as a double
             UserDefaults.setValue(inputs["username"], forKey: "username")
-            UserDefaults.setValue(inputs["height"], forKey: <#T##String#>)
+            UserDefaults.setValue(inputs["height"], forKey: "height")
         }
     }
     

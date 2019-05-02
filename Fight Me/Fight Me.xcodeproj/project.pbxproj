@@ -28,6 +28,8 @@
 		3F9F7D1D227B4E7700A7A709 /* SplashPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F7D1C227B4E7700A7A709 /* SplashPageVC.swift */; };
 		890E9BED225E856A00395D2D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E9BEC225E856A00395D2D /* CoreMotion.framework */; };
 		89383A7F227B570D00975216 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89383A7E227B570D00975216 /* HealthKit.framework */; };
+		89383A81227B868B00975216 /* diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = 89383A80227B868B00975216 /* diamond.png */; };
+		89383A83227B885B00975216 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 89383A82227B885A00975216 /* circle.png */; };
 		89CBCC9922553ACA009CF61B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBCC9822553ACA009CF61B /* AppDelegate.swift */; };
 		89CBCCA022553ACA009CF61B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CBCC9E22553ACA009CF61B /* Main.storyboard */; };
 		89CBCCA222553ACB009CF61B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89CBCCA122553ACB009CF61B /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 		890E9BEC225E856A00395D2D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		89383A7D227B570D00975216 /* Fight Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fight Me.entitlements"; sourceTree = "<group>"; };
 		89383A7E227B570D00975216 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		89383A80227B868B00975216 /* diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond.png; sourceTree = "<group>"; };
+		89383A82227B885A00975216 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		89CBCC9522553ACA009CF61B /* Fight Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fight Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CBCC9822553ACA009CF61B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CBCC9F22553ACA009CF61B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,7 +124,9 @@
 		3F9F7D1B227B4E0E00A7A709 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				89383A80227B868B00975216 /* diamond.png */,
 				3F9F7D19227B4DF600A7A709 /* crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png */,
+				89383A82227B885A00975216 /* circle.png */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -233,6 +239,8 @@
 			files = (
 				3F8A5906225BDDF7002D68ED /* achievements.plist in Resources */,
 				3F8A5908225BDE24002D68ED /* userData.plist in Resources */,
+				89383A81227B868B00975216 /* diamond.png in Resources */,
+				89383A83227B885B00975216 /* circle.png in Resources */,
 				89CBCCA522553ACB009CF61B /* LaunchScreen.storyboard in Resources */,
 				3F8A5904225BDDE3002D68ED /* shop.plist in Resources */,
 				89CBCCA222553ACB009CF61B /* Assets.xcassets in Resources */,

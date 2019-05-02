@@ -31,7 +31,8 @@ class Fighter: FighterDetails {
     }
 
     func calculateFitnessLevel(){
-        //TODO
+        //for now basefitness level = fitnesslevel
+        fitnessLevel = calculateBaseFitnessLevel()
     }
     
     func getFitnessLevel() -> Int{
