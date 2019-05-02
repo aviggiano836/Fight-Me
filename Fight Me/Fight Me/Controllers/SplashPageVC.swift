@@ -14,7 +14,7 @@ class SplashPageVC: UIViewController {
         super.viewDidLoad()
         
         DispatchQueue.main.async() {
-            if(UserDefaults.standard.string(forKey: "user") != nil){
+            if(UserDefaults.standard.string(forKey: "user") == nil){
                 //create user
                 self.performSegue(withIdentifier: "newFighter", sender: self)
             }else{

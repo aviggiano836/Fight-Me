@@ -20,13 +20,22 @@ class NewUserController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var height_in: UITextField!
     @IBOutlet weak var weight: UITextField!
     
+    /*let username = UserDefaults.standard.string(forKey: "user")
+     let height = UserDefaults.standard.double(forKey: "height")
+     let weight = UserDefaults.standard.double(forKey: "weight")
+     let birthday = UserDefaults.standard.string(forKey: "birthday")
+     let skillPoint = UserDefaults.standard.integer(forKey: "skillPoint")
+     let stamina = UserDefaults.standard.integer(forKey: "stamina")
+     let fitnessLevel = UserDefaults.standard.integer(forKey: "fitnessLevel")*/
     
     @IBAction func createUser(_ sender: Any) {
         //create user and send to landing page
         let inputs = validInputs()
         if inputs.count == 5 {
             //create user
-            
+            //calculate height from ft and in to just ft as a double
+            UserDefaults.setValue(inputs["username"], forKey: "username")
+            UserDefaults.setValue(inputs["height"], forKey: <#T##String#>)
         }
     }
     
