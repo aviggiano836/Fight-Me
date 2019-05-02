@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func loadUser(){
+    /*func loadUser(){
         do {
             let plistPath = Bundle.main.path(forResource: "userData", ofType: "plist")!
             let data = try Data(contentsOf: URL(fileURLWithPath: plistPath))
@@ -66,14 +66,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print(error)
         }
-    }
+    }*/
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         loadEquipment()
         
-        //only if user exists alread
-        loadUser()
+        //load user
+        if(UserDefaults.standard.string(forKey: "user") == nil){
+            //create user
+        }else{
+            //load user info
+            let username = UserDefaults.standard.string(forKey: "user")
+            let height = UserDefaults.standard.double(forKey: "height")
+            let weight = UserDefaults.standard.double(forKey: "weight")
+            let birthday = UserDefaults.standard.string(forKey: "birthday")
+            let skillPoint = UserDefaults.standard.integer(forKey: "skillPoint")
+            let stamina = UserDefaults.standard.integer(forKey: "stamina")
+            let fitnessLevel = UserDefaults.standard.integer(forKey: "fitnessLevel")
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+            let date = dateFormatter.date(from: birthday!)
+            
+            self.fighter = Fighter(username: username!, height: height, weight: weight, birthday: date!, skillPoint: skillPoint, stamina: stamina, fitnessLevel: fitnessLevel)
+        }
         
         tabBarController = window?.rootViewController as? UITabBarController
         let equipmentH = EquipmentHandler(allEquipment: allEquipment)
@@ -89,8 +107,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         InvTableVC.equipmentHandler = equipmentH
         
         //set up profile
-        let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController
-        ProfileVC.fighter = fighter
+        //let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController
+        //ProfileVC.fighter = fighter
+        let fh = FitnessHandler()
+        fh.getStepsFromPedometer()
 
         return true
     }

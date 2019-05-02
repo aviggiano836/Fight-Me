@@ -31,9 +31,9 @@ class FitnessHandler: NSObject {
         getStepsFromPedometer()
     }
     func getStepsFromPedometer(){
-        print("im in")
         if CMPedometer.isStepCountingAvailable() {
             let calendar = Calendar.current
+            
             pedometer.queryPedometerData(from: calendar.startOfDay(for: Date()), to: Date()) { (data, error) in
                 print(data)
             }
