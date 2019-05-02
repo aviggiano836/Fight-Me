@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import HealthKit
 
 class FitnessHandler: NSObject {
     
@@ -31,14 +32,32 @@ class FitnessHandler: NSObject {
         getStepsFromPedometer()
     }
     func getStepsFromPedometer(){
-        if CMPedometer.isStepCountingAvailable() {
-            let calendar = Calendar.current
-            
-            pedometer.queryPedometerData(from: calendar.startOfDay(for: Date()), to: Date()) { (data, error) in
-                print(data)
+        pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
+            if let pedData = pedometerData{
+                print("Steps:\(pedData.numberOfSteps)")
+            } else {
+                print("Steps: Not Available")
             }
-        }
+        })
     }
+    let healthStore = HKHealthStore()
+    
+    func getTodaysSteps() {
+        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+        
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        
+        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
+            guard let result = result, let sum = result.sumQuantity() else {
+                return
+            }
+            print(sum.doubleValue(for: HKUnit.count()))
+        }
+        healthStore.execute(query)
+    }
+    
     
     
 }

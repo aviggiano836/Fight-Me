@@ -110,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController
         //ProfileVC.fighter = fighter
         let fh = FitnessHandler()
-        fh.getStepsFromPedometer()
+        fh.getTodaysSteps()
 
         return true
     }
