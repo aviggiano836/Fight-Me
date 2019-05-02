@@ -10,6 +10,19 @@ import UIKit
 
 class NewUserController: UIViewController {
 
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var birthdate: UIDatePicker!
+    @IBOutlet weak var height_ft: UITextField!
+    @IBOutlet weak var height_in: UITextField!
+    @IBOutlet weak var weight: UITextField!
+    
+    
+    @IBAction func createUser(_ sender: Any) {
+        //create user and send to landing page
+    
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
