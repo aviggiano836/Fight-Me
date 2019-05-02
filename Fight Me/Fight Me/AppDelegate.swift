@@ -75,43 +75,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //load user
         if(UserDefaults.standard.string(forKey: "user") == nil){
             //create user
+            print("Sending user to new page")
         }else{
-            //load user info
-            let username = UserDefaults.standard.string(forKey: "user")
-            let height = UserDefaults.standard.double(forKey: "height")
-            let weight = UserDefaults.standard.double(forKey: "weight")
-            let birthday = UserDefaults.standard.string(forKey: "birthday")
-            let skillPoint = UserDefaults.standard.integer(forKey: "skillPoint")
-            let stamina = UserDefaults.standard.integer(forKey: "stamina")
-            let fitnessLevel = UserDefaults.standard.integer(forKey: "fitnessLevel")
+            tabBarController = window?.rootViewController as? UITabBarController
+            let equipmentH = EquipmentHandler(allEquipment: allEquipment)
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-            let date = dateFormatter.date(from: birthday!)
+            //set up shop
+            let ShopNavVC = tabBarController!.viewControllers![2] as! UINavigationController
+            let ShopTableVC = ShopNavVC.viewControllers[0] as! ShopController
+            ShopTableVC.equipmentHandler = equipmentH
             
-            self.fighter = Fighter(username: username!, height: height, weight: weight, birthday: date!, skillPoint: skillPoint, stamina: stamina, fitnessLevel: fitnessLevel)
+            //set up inventory
+            let InvNavVC = tabBarController!.viewControllers![1] as! UINavigationController
+            let InvTableVC = InvNavVC.viewControllers[0] as! InventoryController
+            InvTableVC.equipmentHandler = equipmentH
+            
+            //set up profile
+            //let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController
+            //ProfileVC.fighter = fighter
+            let fh = FitnessHandler()
+            fh.getStepsFromPedometer()
         }
         
-        tabBarController = window?.rootViewController as? UITabBarController
-        let equipmentH = EquipmentHandler(allEquipment: allEquipment)
-        
-        //set up shop
-        let ShopNavVC = tabBarController!.viewControllers![2] as! UINavigationController
-        let ShopTableVC = ShopNavVC.viewControllers[0] as! ShopController
-        ShopTableVC.equipmentHandler = equipmentH
-        
-        //set up inventory
-        let InvNavVC = tabBarController!.viewControllers![1] as! UINavigationController
-        let InvTableVC = InvNavVC.viewControllers[0] as! InventoryController
-        InvTableVC.equipmentHandler = equipmentH
-        
-        //set up profile
-        //let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController
-        //ProfileVC.fighter = fighter
-        let fh = FitnessHandler()
-        fh.getStepsFromPedometer()
-
         return true
     }
 

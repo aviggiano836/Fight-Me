@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="1119" y="-1035"/>
         </scene>
-        <!--New User Controller-->
+        <!--newFighter-->
         <scene sceneID="JOQ-w1-Lgl">
             <objects>
-                <viewController id="LRu-7Z-a4p" customClass="NewUserController" customModule="Fight_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newFighter" title="newFighter" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LRu-7Z-a4p" customClass="NewUserController" customModule="Fight_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wen-0z-kOm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,8 +244,8 @@
                         <viewLayoutGuide key="safeArea" id="csn-7k-WAv"/>
                     </view>
                     <connections>
-                        <segue destination="LRu-7Z-a4p" kind="show" id="rcs-H8-UFw"/>
-                        <segue destination="49e-Tb-3d3" kind="show" id="e4I-bd-gvs"/>
+                        <segue destination="LRu-7Z-a4p" kind="show" identifier="newFighter" id="rcs-H8-UFw"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="returningFighter" id="e4I-bd-gvs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKV-L8-oYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,7 +255,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="TabBarController" customModule="Fight_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="returningFighter" id="49e-Tb-3d3" customClass="TabBarController" customModule="Fight_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
