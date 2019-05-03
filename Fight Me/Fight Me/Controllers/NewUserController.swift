@@ -40,7 +40,8 @@ class NewUserController: UIViewController, UITextFieldDelegate {
             UserDefaults.standard.set(inputs["weight"], forKey: "weight")
             UserDefaults.standard.set(inputs["birthday"], forKey: "birthday")
             
-
+            //send user to tab bar controller
+            
         }
     }
     
