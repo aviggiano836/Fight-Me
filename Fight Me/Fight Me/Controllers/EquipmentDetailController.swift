@@ -23,12 +23,12 @@ class EquipmentDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        name.text = equipment.getName()
+        /*name.text = equipment.getName()
         desc.text = equipment.getDesc()
         type.text = equipment.getTypeAsString()
         maxDur.text = String(equipment.getMaxDurability())
         currDur.text = String(equipment.getCurrentDurability())
-        cost.text = String(equipment.getCost())
+        cost.text = String(equipment.getCost())*/
         //image.image = UIImage(contentsOfFile: equipment.getImagePath())
         
         // Do any additional setup after loading the view.

@@ -679,6 +679,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oum-MB-fm8"/>
                     </view>
+                    <navigationItem key="navigationItem" id="JCY-2M-ian"/>
                     <connections>
                         <outlet property="cost" destination="N0r-WU-9Ik" id="WGj-lJ-EGv"/>
                         <outlet property="currDur" destination="1qE-T3-DYa" id="dRj-tt-aqA"/>
