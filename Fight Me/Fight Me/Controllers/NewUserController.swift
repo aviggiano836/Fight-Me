@@ -33,9 +33,14 @@ class NewUserController: UIViewController, UITextFieldDelegate {
         let inputs = validInputs()
         if inputs.count == 5 {
             //create user
-            //calculate height from ft and in to just ft as a double
-            UserDefaults.setValue(inputs["username"], forKey: "username")
-            UserDefaults.setValue(inputs["height"], forKey: "height")
+            print("creating user")
+            
+            UserDefaults.standard.set(inputs["username"], forKey: "user")
+            UserDefaults.standard.set(calculateHeight(feet: inputs["height_ft"] as! String, inches: inputs["height_in"] as! String), forKey: "height")
+            UserDefaults.standard.set(inputs["weight"], forKey: "weight")
+            UserDefaults.standard.set(inputs["birthday"], forKey: "birthday")
+            
+
         }
     }
     
@@ -46,12 +51,29 @@ class NewUserController: UIViewController, UITextFieldDelegate {
         var temp: [String:Any] = [:]
         
         temp = validateTextField(field: username, key: "username", text: username.text!, dict: temp)
-        temp["birthdate"] = birthdate.date //Date picker has default date
+        temp["birthday"] = dateAsString(date: birthdate.date)//Date picker has default date
         temp = validateTextField(field: height_ft, key: "height_ft", text: height_ft.text!, dict: temp)
         temp = validateTextField(field: height_in, key: "height_in", text: height_in.text!, dict: temp)
         temp = validateTextField(field: weight, key: "weight", text: weight.text!, dict: temp)
         
         return temp
+    }
+    
+    /*
+     * Return height in just feet
+     */
+    func calculateHeight(feet:String, inches:String) -> Double{
+        return (Double(feet)!) + (Double(inches)! / 12)
+    }
+    
+    /*
+     * Format date into a String
+     */
+    func dateAsString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        return dateFormatter.string(from: date)//Date picker has default date
     }
     
     /*
