@@ -27,8 +27,6 @@ class ProfileController: UIViewController {
     @IBOutlet weak var staminaBar: UIProgressView!
     
     
-    var fitnessHandler = FitnessHandler()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
@@ -36,7 +34,7 @@ class ProfileController: UIViewController {
     
     func updateUI(){
         fighter?.calculateFitnessLevel()
-        steps.text = String(Int(fitnessHandler.getStepsForToday()))
+        steps.text = String(Int((fighter?.fitnessHandler!.getStepsForToday())!))
         nameLabel.text = fighter?.username
         fitnessLevelLabel.text = String(format:"%d", (fighter?.fitnessLevel)!)
         skillPointsLabel.text = String(format:"%d", (fighter?.skillPoint)!)
@@ -108,6 +106,9 @@ class ProfileController: UIViewController {
             //do nothing
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        updateUI()
     }
     
 
