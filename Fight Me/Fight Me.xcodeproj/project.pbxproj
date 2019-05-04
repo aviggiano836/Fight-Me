@@ -24,6 +24,7 @@
 		3F8A591E225BDF57002D68ED /* InventoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591D225BDF57002D68ED /* InventoryController.swift */; };
 		3F8A5920225BDFB9002D68ED /* NewUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A591F225BDFB9002D68ED /* NewUserController.swift */; };
 		3F8A5922225BE0AC002D68ED /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A5921225BE0AC002D68ED /* TabBarController.swift */; };
+		3F908CA5227CCED900A5DB85 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F908CA4227CCED900A5DB85 /* CoreBluetooth.framework */; };
 		3F9F7D1A227B4DF900A7A709 /* crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9F7D19227B4DF600A7A709 /* crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png */; };
 		3F9F7D1D227B4E7700A7A709 /* SplashPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F7D1C227B4E7700A7A709 /* SplashPageVC.swift */; };
 		890E9BED225E856A00395D2D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E9BEC225E856A00395D2D /* CoreMotion.framework */; };
@@ -55,6 +56,7 @@
 		3F8A591D225BDF57002D68ED /* InventoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryController.swift; sourceTree = "<group>"; };
 		3F8A591F225BDFB9002D68ED /* NewUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserController.swift; sourceTree = "<group>"; };
 		3F8A5921225BE0AC002D68ED /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3F908CA4227CCED900A5DB85 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		3F9F7D19227B4DF600A7A709 /* crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crab_with_a_knife_by_sandwich_anomaly_dcmh8dj-pre.png"; sourceTree = "<group>"; };
 		3F9F7D1C227B4E7700A7A709 /* SplashPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPageVC.swift; sourceTree = "<group>"; };
 		890E9BEC225E856A00395D2D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F908CA5227CCED900A5DB85 /* CoreBluetooth.framework in Frameworks */,
 				890E9BED225E856A00395D2D /* CoreMotion.framework in Frameworks */,
 				89383A7F227B570D00975216 /* HealthKit.framework in Frameworks */,
 			);
@@ -137,6 +140,7 @@
 		890E9BEB225E856A00395D2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F908CA4227CCED900A5DB85 /* CoreBluetooth.framework */,
 				89383A7E227B570D00975216 /* HealthKit.framework */,
 				890E9BEC225E856A00395D2D /* CoreMotion.framework */,
 			);
@@ -210,6 +214,9 @@
 					89CBCC9422553ACA009CF61B = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.HealthKit = {
 								enabled = 1;
 							};
