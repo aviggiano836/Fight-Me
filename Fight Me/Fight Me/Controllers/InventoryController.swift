@@ -13,6 +13,7 @@ class InventoryController: UITableViewController {
     
     var equipmentHandler: EquipmentHandler?
     var equipment: [Equipment] = []
+    var fighter: Fighter?
     
     @IBAction func displayChanged(sender:UISegmentedControl){
         switch self.display?.selectedSegmentIndex {
@@ -32,6 +33,8 @@ class InventoryController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.equipment = equipmentHandler?.getUserEquipment() ?? []
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -73,15 +76,12 @@ class InventoryController: UITableViewController {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = tableView.indexPathForSelectedRow
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let equip = equipment[indexPath.row]
+        let detailVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EquipmentDC") as? EquipmentDetailController
+        detailVC!.title = equip.getName()
+        detailVC!.equipment = equip
+        navigationController?.pushViewController(detailVC!, animated: true)
         
-        print("Equipment Selected as row: \(indexPath!.row)")
-        let equipment = self.equipment[indexPath!.row]
-        let equipmentDetail = segue.destination as! EquipmentDetailController
-        equipmentDetail.equipment = equipment
-        
-        
-        equipmentDetail.title = equipment.getName()
     }
 }

@@ -65,6 +65,15 @@ class ProfileController: UIViewController {
         let aimage: UIImage = UIImage(named: (armorName?.imagePath)!)!
         armorImage.image = aimage
         
+        //weapon
+        //let tap3 = UITapGestureRecognizer(target: self, action: #selector(ProfileController.tapWeapon))
+        //weaponImage.isUserInteractionEnabled = true
+        //weaponImage.addGestureRecognizer(tap3)
+        
+        
+        //armor
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -110,7 +119,28 @@ class ProfileController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    
+    /*
+    @objc func tapWeapon(sender:UITapGestureRecognizer) {
+        let alert = UIAlertController(title: "Equip Weapon", message: "Enter your weight:", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.keyboardType = .decimalPad
+            textField.text = "\(String(format:"%.1f",(self.fighter?.weight)!))"
+        }
+        
+        // Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (action) -> Void in
+            let textField = alert!.textFields![0]
+            if(textField.text != ""){
+                self.fighter?.updateWeight(newWeight: Double(textField.text!)!)
+                self.updateUI()
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak alert] (_) in
+            //do nothing
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    */
     
 
     /*

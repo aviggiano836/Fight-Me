@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var tabBarController: UITabBarController?
     var allEquipment: [Equipment] = []
+    var inventory: [Equipment] = []
     var fighter: Fighter?
     var fighterEquipment: [Equipment] = []
 
@@ -71,9 +72,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(error)
         }
     }
+    func loadInventory(){
+        do {
+            let plistPath = Bundle.main.path(forResource: "userData", ofType: "plist")!
+            let data = try Data(contentsOf: URL(fileURLWithPath: plistPath))
+            let tempDict = try PropertyListSerialization.propertyList(from: data, format: nil) as! [String:Any]
+            print("\(tempDict)")
+            let dict = tempDict["Fighter"]! as! [String:Any]
+            //equipment stuff
+            let inventoryArray = dict["inventory"] as! Array<Any>
+            let tempEH = EquipmentHandler(allEquipment: allEquipment)
+            for item in inventoryArray{
+                let invItem = tempEH.getEquipment(name: item as! String)
+                inventory.append(invItem)
+            }
+    
+        } catch {
+            print(error)
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         //steps
         let fh = FitnessHandler()
         fh.askHealthPermission()
@@ -101,7 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let date = dateFormatter.date(from: birthday!)
             let fighter = Fighter(username: username!, height: height, weight: weight, birthday: date!, skillPoint: skillPoint, stamina: stamina, fitnessLevel: fitnessLevel)
             */
-            let equipmentH = EquipmentHandler(allEquipment: allEquipment)
+            loadInventory()
+            let equipmentH = EquipmentHandler(allEquipment: allEquipment, userEquipment:inventory)
             loadUser(equipmentHandler: equipmentH)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "returningFighter")
@@ -118,6 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let InvNavVC = tabBarController!.viewControllers![1] as! UINavigationController
             let InvTableVC = InvNavVC.viewControllers[0] as! InventoryController
             InvTableVC.equipmentHandler = equipmentH
+            InvTableVC.fighter = fighter
             
             //set up profile
             let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController

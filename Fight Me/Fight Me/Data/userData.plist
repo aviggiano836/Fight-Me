@@ -4,6 +4,11 @@
 <dict>
 	<key>Fighter</key>
 	<dict>
+		<key>inventory</key>
+		<array>
+			<string>Hockey Mask</string>
+			<string>Pet Rock</string>
+		</array>
 		<key>achievements</key>
 		<array>
 			<string>Beaten by Stabby the Crabby</string>
