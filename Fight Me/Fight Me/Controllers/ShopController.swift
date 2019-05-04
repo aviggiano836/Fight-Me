@@ -14,6 +14,7 @@ class ShopController: UITableViewController {
     
     var equipmentHandler: EquipmentHandler?
     var equipment: [Equipment] = []
+    var fighter: Fighter!
     
     @IBAction func displayChanged(sender:UISegmentedControl){
         switch self.display?.selectedSegmentIndex {
@@ -89,6 +90,8 @@ class ShopController: UITableViewController {
         let detailVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EquipmentDC") as? EquipmentDetailController
         detailVC!.title = equip.getName()
         detailVC!.equipment = equip
+        detailVC!.buyBool = true
+        detailVC!.fighter = fighter
         navigationController?.pushViewController(detailVC!, animated: true)
         
     }

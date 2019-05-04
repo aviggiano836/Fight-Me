@@ -6,6 +6,7 @@
 	<dict>
 		<key>inventory</key>
 		<array>
+			<string>Stick</string>
 			<string>Hockey Mask</string>
 			<string>Pet Rock</string>
 		</array>
@@ -18,7 +19,7 @@
 		<key>equipment</key>
 		<array>
 			<string>Stick</string>
-			<string>Potato Sack</string>
+			<string>Hockey Mask</string>
 		</array>
 		<key>fitnessLevel</key>
 		<integer>8</integer>

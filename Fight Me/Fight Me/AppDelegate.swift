@@ -133,6 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let ShopNavVC = tabBarController!.viewControllers![2] as! UINavigationController
             let ShopTableVC = ShopNavVC.viewControllers[0] as! ShopController
             ShopTableVC.equipmentHandler = equipmentH
+            ShopTableVC.fighter = fighter
             
             //set up inventory
             let InvNavVC = tabBarController!.viewControllers![1] as! UINavigationController

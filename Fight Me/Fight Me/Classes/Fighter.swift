@@ -54,5 +54,30 @@ class Fighter: FighterDetails {
     func getEquiped() -> (Equipment,Equipment)?{
         return equiped
     }
+    
+    //purchases item
+    func buyItem(item:Equipment)-> Bool{
+        if(skillPoint! < item.getCost()){
+            print("not enough SP")
+            return false
+        }
+        for i in equipmentH!.getUserEquipment(){
+            if (i == item){
+                print("already owns item")
+                return false
+            }
+        }
+        self.skillPoint = skillPoint! - item.getCost()
+        equipmentH?.addEquipment(equipment: item)
+        return true
+    }
+    
+    func equipItem(item:Equipment){
+        if(item.getTypeAsString() == "ARMOR"){
+            self.equiped = (equiped?.weapon, item) as? (weapon: Equipment, armor: Equipment)
+        }else{
+            self.equiped = (item, equiped?.armor) as? (weapon: Equipment, armor: Equipment)
+        }
+    }
 
 }

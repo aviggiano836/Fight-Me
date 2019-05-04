@@ -81,6 +81,7 @@ class InventoryController: UITableViewController {
         let detailVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EquipmentDC") as? EquipmentDetailController
         detailVC!.title = equip.getName()
         detailVC!.equipment = equip
+        detailVC!.buyBool = false
         navigationController?.pushViewController(detailVC!, animated: true)
         
     }
