@@ -41,12 +41,13 @@ class ProfileController: UIViewController {
         fitnessLevelLabel.text = String(format:"%d", (fighter?.fitnessLevel)!)
         skillPointsLabel.text = String(format:"%d", (fighter?.skillPoint)!)
         
+        //height
         heightLabel.text = "\(String((fighter?.height)!)) '"
         let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileController.tapHeight))
         heightLabel.isUserInteractionEnabled = true
         heightLabel.addGestureRecognizer(tap)
         
-        
+        //weight
         weightLabel.text = "\(String((fighter?.weight)!)) lbs"
         let tap2 = UITapGestureRecognizer(target: self, action: #selector(ProfileController.tapWeight))
         weightLabel.isUserInteractionEnabled = true
@@ -54,6 +55,17 @@ class ProfileController: UIViewController {
         
         fitnessLevelBar.setProgress((Float(Double((fighter?.fitnessLevel)!) / 10)), animated: true)
         staminaBar.setProgress((Float(Double((fighter?.stamina)!) / 10)), animated: true)
+        
+        //equipment
+        let armorName = fighter?.equiped?.armor
+        let weaponName = fighter?.equiped?.weapon
+        
+        let wimage: UIImage = UIImage(named: (weaponName?.imagePath)!)!
+        weaponImage.image = wimage
+        let aimage: UIImage = UIImage(named: (armorName?.imagePath)!)!
+        armorImage.image = aimage
+        
+        
         // Do any additional setup after loading the view.
     }
     

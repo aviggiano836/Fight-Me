@@ -15,7 +15,7 @@ class Fighter: FighterDetails {
     var equiped: (weapon:Equipment,armor:Equipment)?
     var skillPoint: Int?
     var fitnessHandler: FitnessHandler?
-    var equipment: EquipmentHandler?
+    var equipmentH: EquipmentHandler?
     var achievements: AchievementHandler?
     
     override init(username:String, height:Double, weight:Double, birthday:Date) {
@@ -23,11 +23,17 @@ class Fighter: FighterDetails {
         fitnessLevel = super.calculateBaseFitnessLevel()
     }
     
-    init(username:String, height:Double, weight:Double, birthday:Date, skillPoint: Int, stamina: Int, fitnessLevel: Int) {
+    init(equipmentHandler: EquipmentHandler, username:String, height:Double, weight:Double, birthday:Date, skillPoint: Int, stamina: Int, fitnessLevel: Int, equiped: (String,String)) {
         super.init(username:username,height:height,weight:weight,birthday:birthday)
+        self.equipmentH = equipmentHandler
         self.fitnessLevel = fitnessLevel
         self.stamina = stamina
         self.skillPoint = skillPoint
+        
+        //do equipment
+        self.equiped = (equipmentH?.getEquipment(name: equiped.0), equipmentH?.getEquipment(name: equiped.1)) as? (weapon: Equipment, armor: Equipment)
+        
+        
     }
 
     func calculateFitnessLevel(){
@@ -45,8 +51,8 @@ class Fighter: FighterDetails {
     }
     
     //Returns a touple of what equpiment the fighter has equpied
-    func getEquiped() -> (Equipment,Equipment){
-        return equiped!
+    func getEquiped() -> (Equipment,Equipment)?{
+        return equiped
     }
 
 }

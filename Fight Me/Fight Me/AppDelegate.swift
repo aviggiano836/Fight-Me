@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tabBarController: UITabBarController?
     var allEquipment: [Equipment] = []
     var fighter: Fighter?
+    var fighterEquipment: [Equipment] = []
 
     func loadEquipment(){
         do {
@@ -41,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func loadUser(){
+    func loadUser(equipmentHandler: EquipmentHandler){
         do {
             let plistPath = Bundle.main.path(forResource: "userData", ofType: "plist")!
             let data = try Data(contentsOf: URL(fileURLWithPath: plistPath))
@@ -51,7 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let skillPoints = dict["skillPoints"]! as! Int
             let fitnessLevel = dict["fitnessLevel"]! as! Int
             let stamina = dict["stamina"]! as! Int
-                
+            
+            //equipment stuff
+            let equipmentArray = dict["equipment"] as! Array<Any>
+            
+            let myequipment = (equipmentArray[0], equipmentArray[1]) as! (String, String)
+            
             let weight = dict["weight"]! as! Double
             let height = dict["height"]! as! Double
             let birthday = dict["birthday"]! as! Date
@@ -59,8 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                 //TODO: get equipment
                 //TODO: get achievements
-                
-            self.fighter = Fighter(username: name, height: height, weight: weight, birthday: birthday, skillPoint: skillPoints, stamina: stamina, fitnessLevel: fitnessLevel)
+            self.fighter = Fighter(equipmentHandler:equipmentHandler, username: name, height: height, weight: weight, birthday: birthday, skillPoint: skillPoints, stamina: stamina, fitnessLevel: fitnessLevel, equiped: myequipment)
             
         } catch {
             print(error)
@@ -96,13 +101,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let date = dateFormatter.date(from: birthday!)
             let fighter = Fighter(username: username!, height: height, weight: weight, birthday: date!, skillPoint: skillPoint, stamina: stamina, fitnessLevel: fitnessLevel)
             */
-            loadUser()
+            let equipmentH = EquipmentHandler(allEquipment: allEquipment)
+            loadUser(equipmentHandler: equipmentH)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "returningFighter")
             self.window?.rootViewController = initialViewController
             
             tabBarController = initialViewController as! TabBarController
-            let equipmentH = EquipmentHandler(allEquipment: allEquipment)
             
             //set up shop
             let ShopNavVC = tabBarController!.viewControllers![2] as! UINavigationController
