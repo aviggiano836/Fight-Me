@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Fighter: FighterDetails {
+class Fighter: FighterDetails{
     
     var fitnessLevel: Int?
     var stamina: Int?
@@ -33,8 +33,6 @@ class Fighter: FighterDetails {
         
         //do equipment
         self.equiped = (equipmentH?.getEquipment(name: equiped.0), equipmentH?.getEquipment(name: equiped.1)) as? (weapon: Equipment, armor: Equipment)
-        
-        
     }
 
     func calculateFitnessLevel(){
@@ -79,6 +77,12 @@ class Fighter: FighterDetails {
         }else{
             self.equiped = (item, equiped?.armor) as? (weapon: Equipment, armor: Equipment)
         }
+    }
+    
+    func saveFighter(){
+        //UserDefaults.standard.setObject(NSKeyedArchiver.archivedDataWithRootObject(Fighter), forKey: "blog")
+        
+        //UserDefaults.standard.setValue(value: Any?, forKey: "user")
     }
 
 }
