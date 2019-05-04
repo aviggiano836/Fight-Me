@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loadEquipment()
         
         //load user
-        if(UserDefaults.standard.string(forKey: "user") == nil){
+        if(UserDefaults.standard.string(forKey: "user") != nil){
             //create user
         }else{
             /*let username = UserDefaults.standard.string(forKey: "user")

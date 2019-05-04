@@ -21,6 +21,15 @@ class FightController: UIViewController {
     var centralManager: CBCentralManager?
     var peripheralManager = CBPeripheralManager()
     
+    @IBOutlet weak var connectionLabel: UILabel!
+    @IBAction func tryConnecting(_ sender: UIButton) {
+        if (selectedPeripheral != nil){
+            centralManager?.connect(selectedPeripheral!, options: nil)
+            connectionLabel?.text = "Starting"
+        } else {
+            connectionLabel?.text = "Not connected"
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +48,27 @@ class FightController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func updateAdvertisingData() {
+        
+        if (peripheralManager.isAdvertising) {
+            peripheralManager.stopAdvertising()
+        }
+        
+        let advertisementData = String(format: "Ready to Fight")
+        
+        peripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey:[SERVICE_UUID], CBAdvertisementDataLocalNameKey: advertisementData])
+    }
+    
+    
+    func initService() {
+        let serialService = CBMutableService(type: SERVICE_UUID, primary: true)
+        let writeCharacteristics = CBMutableCharacteristic(type: WR_UUID,
+                                                           properties: WR_PROPERTIES, value: nil,
+                                                           permissions: WR_PERMISSIONS)
+        serialService.characteristics = [writeCharacteristics]
+        peripheralManager.add(serialService)
+    }
 
 }
 
@@ -84,31 +114,16 @@ extension FightController : CBPeripheralDelegate {
         _ peripheral: CBPeripheral,
         didDiscoverCharacteristicsFor service: CBService,
         error: Error?) {
-        
-        for characteristic in service.characteristics! {
-            
-            let characteristic = characteristic as CBCharacteristic
- 
-            
-        }
+
     }
 }
 
 extension FightController : CBPeripheralManagerDelegate {
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        if (peripheral.state == .poweredOn) {
-            
-            let serialService = CBMutableService(type: SERVICE_UUID, primary: true)
-            let writeCharacteristics = CBMutableCharacteristic(type: WR_UUID,
-                                                               properties: WR_PROPERTIES, value: nil,
-                                                               permissions: WR_PERMISSIONS)
-            serialService.characteristics = [writeCharacteristics]
-            peripheralManager.add(serialService)
-                
-            let advertisementData = String(format: "Ready to Fight")
-            peripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey:[SERVICE_UUID],
-                                                CBAdvertisementDataLocalNameKey: advertisementData])
+        if (peripheral.state == .poweredOn){
+            initService()
+            updateAdvertisingData()
         }
     }
     
