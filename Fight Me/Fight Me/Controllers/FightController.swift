@@ -60,10 +60,31 @@ class FightController: UIViewController, UITextFieldDelegate {
                                               steps: (fighter?.fitnessHandler?.getStepsForToday())!,
                                               weapon: (fighter?.getEquiped()?.0)!,
                                               armor: (fighter?.getEquiped()?.1)!)
-        let opponentLevel = 9.0
+                            + Double.random(in: 0..<2) //Luck
+        
+        // Kept getting weird error when trying to convert the string to a double inline:
+        //      Expression type '@lvalue String?' is ambiguous without more context
+        let steps = Int((self.opponentSteps?.text)!) //Double(self.opponentSteps.text)
+        let level = Int((self.opponentLevel?.text)!)
+        let opponentFightLevel = Double(level!) + (Double(steps!)/1000) + Double.random(in: 0..<2) //Luck
+        
+        fighter?.stamina = (fighter?.stamina)! - 1
         
         //Fight
-        fighterLevel + opponentLevel
+        if fighterLevel > opponentFightLevel {
+            showAlert(title: "Nice", message: "You won the fight by \(Int(fighterLevel - opponentFightLevel)) points", action: "Coolio")
+        } else if opponentFightLevel > fighterLevel {
+            showAlert(title: "Boooo!", message: "You lose", action: ":'(")
+        } else if opponentFightLevel == fighterLevel {
+            showAlert(title: "No winners here", message: "Stabby the Crabby got both of you", action: "Crabtastic")
+        }
+    }
+    
+    //Create and show an alert for the fight results
+    func showAlert(title:String, message:String, action:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: action, style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
     //Calculate User Level based on the Fighters level, # of steps, and used equipment
