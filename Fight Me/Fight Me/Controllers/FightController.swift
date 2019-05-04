@@ -21,6 +21,7 @@ class FightController: UIViewController {
     var centralManager: CBCentralManager?
     var peripheralManager = CBPeripheralManager()
     
+    
     @IBOutlet weak var connectionLabel: UILabel!
     @IBAction func tryConnecting(_ sender: UIButton) {
         if (selectedPeripheral != nil){
@@ -33,7 +34,12 @@ class FightController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("creating central manager")
         centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
+        
+        print("creating peripheral manager")
+        //Something after this is wrong and causes [CoreBluetooth] XPC connection invalid
+        //
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         // Do any additional setup after loading the view.
     }
@@ -50,7 +56,6 @@ class FightController: UIViewController {
     */
     
     func updateAdvertisingData() {
-        
         if (peripheralManager.isAdvertising) {
             peripheralManager.stopAdvertising()
         }
@@ -75,11 +80,24 @@ class FightController: UIViewController {
 extension FightController : CBCentralManagerDelegate {
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        switch central.state {
+        case .unknown:
+            print("unknown")
+        case .resetting:
+            print("resetting")
+        case .unsupported:
+            print("unsupported")
+        case .unauthorized:
+            print("unauthorized")
+        case .poweredOff:
+            print("powered off")
+        case .poweredOn:
+            print("powered on")
+            //self.centralManager.scanForPeripherals(withServices: nil, options: nil)
+        }
         
         if (central.state == .poweredOn){
-            
-            self.centralManager?.scanForPeripherals(withServices: [SERVICE_UUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
-            
+            self.centralManager?.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
         }
     }
     
@@ -93,7 +111,7 @@ extension FightController : CBCentralManagerDelegate {
     
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        
+        print("central did connect")
         peripheral.delegate = self
         peripheral.discoverServices(nil)
         
@@ -103,7 +121,6 @@ extension FightController : CBCentralManagerDelegate {
 extension FightController : CBPeripheralDelegate {
     
     func peripheral( _ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        
         for service in peripheral.services! {
             
             peripheral.discoverCharacteristics(nil, for: service)
