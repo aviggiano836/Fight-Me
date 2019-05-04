@@ -26,7 +26,11 @@ class FightController: UIViewController, UITextFieldDelegate {
     
     @IBAction func validateAndFight(_ sender: UIButton) {
         if validInputs() {
-            fight()
+            if ((fighter?.stamina)! > 0) {
+                fight()
+            } else {
+                showAlert(title: "Oh No", message: "You're out of stamina, come back tomorrow", action: "Aww")
+            }
         }
     }
     
@@ -60,7 +64,6 @@ class FightController: UIViewController, UITextFieldDelegate {
                                               steps: (fighter?.fitnessHandler?.getStepsForToday())!,
                                               weapon: (fighter?.getEquiped()?.0)!,
                                               armor: (fighter?.getEquiped()?.1)!)
-                            + Double.random(in: 0..<2) //Luck
         
         // Kept getting weird error when trying to convert the string to a double inline:
         //      Expression type '@lvalue String?' is ambiguous without more context
@@ -68,15 +71,31 @@ class FightController: UIViewController, UITextFieldDelegate {
         let level = Int((self.opponentLevel?.text)!)
         let opponentFightLevel = Double(level!) + (Double(steps!)/1000) + Double.random(in: 0..<2) //Luck
         
-        fighter?.stamina = (fighter?.stamina)! - 1
-        
         //Fight
         if fighterLevel > opponentFightLevel {
-            showAlert(title: "Nice", message: "You won the fight by \(Int(fighterLevel - opponentFightLevel)) points", action: "Coolio")
+            showAlert(title: "Nice", message: "You won the fight by \(String(format:"%.2f", fighterLevel - opponentFightLevel)) points", action: "Coolio")
+            handleFightAfterMath(fighterWon: true)
         } else if opponentFightLevel > fighterLevel {
             showAlert(title: "Boooo!", message: "You lose", action: ":'(")
+            handleFightAfterMath(fighterWon: false)
         } else if opponentFightLevel == fighterLevel {
             showAlert(title: "No winners here", message: "Stabby the Crabby got both of you", action: "Crabtastic")
+            handleFightAfterMath(fighterWon: false)
+        }
+    }
+    
+    func handleFightAfterMath(fighterWon:Bool){
+        //Aftermath
+        fighter?.stamina = (fighter?.stamina)! - 1
+        fighter?.getEquiped()?.0.useEquipment()
+        fighter?.getEquiped()?.1.useEquipment()
+        if fighterWon {
+            let spGain = Int.random(in: 1..<4)
+            fighter?.skillPoint = (fighter?.skillPoint)! + spGain
+            
+            showAlert(title: "Aftermath", message: "You lost 1 stamina and gained \(spGain) SP", action: "Awesome")
+        } else {
+            showAlert(title: "Aftermath", message: "You lost 1 stamina", action: "OK")
         }
     }
     
@@ -92,7 +111,7 @@ class FightController: UIViewController, UITextFieldDelegate {
     //      Each Equipment has a buff amount that counts toward the user's level
     func calculateUserLevel(level: Int, steps: Double, weapon:Equipment, armor: Equipment) -> Double{
         let stepLevel = steps / 1000 //Each 1000 steps counts as 1 point
-        return stepLevel + Double(level + weapon.getBuff() + armor.getBuff())
+        return stepLevel + Double(level + weapon.getBuff() + armor.getBuff()) + Double.random(in: 0..<2) //Luck
     }
     
     //Populate the weapon picker with the available weapons for the opponent
