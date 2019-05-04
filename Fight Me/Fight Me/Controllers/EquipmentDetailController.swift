@@ -75,23 +75,11 @@ class EquipmentDetailController: UIViewController {
         let alert = UIAlertController(title: "Equip \(equipment.getName())", message: "This item will be equiped in your \(equipment.getType()) slot", preferredStyle: .alert)
         
         // Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alert] (action) -> Void in
-            /*
-            let check = self.fighter.eq(item: self.equipment)
-            if(check){
-                let alert = UIAlertController(title: "Success!", message: "You bought a \(self.equipment.getName())!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-                    //do nothing
-                }))
-                self.present(alert, animated: true, completion: nil)
-            }else{
-                let alert = UIAlertController(title: "Opps", message: "You are unable to buy a \(self.equipment.getName()). You either already own one, or don't have enough SP!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-                    //do nothing
-                }))
-                self.present(alert, animated: true, completion: nil)
-            }
- */
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (action) -> Void in
+            
+            self.fighter.equipItem(item: self.equipment)
+           
+ 
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak alert] (_) in
             //do nothing
