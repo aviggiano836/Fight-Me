@@ -86,11 +86,10 @@ class ShopController: UITableViewController {
     }*/
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let equip = equipment[indexPath.row]
-        print(equip.getName())
-        let detailVC = EquipmentDetailController()
-        detailVC.title = equip.getName()
-        detailVC.equipment = equip
-        navigationController?.pushViewController(detailVC, animated: true)
+        let detailVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EquipmentDC") as? EquipmentDetailController
+        detailVC!.title = equip.getName()
+        detailVC!.equipment = equip
+        navigationController?.pushViewController(detailVC!, animated: true)
         
     }
     

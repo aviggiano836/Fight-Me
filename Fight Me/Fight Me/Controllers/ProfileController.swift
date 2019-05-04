@@ -11,6 +11,7 @@ import UIKit
 class ProfileController: UIViewController {
 
     var fighter: Fighter?
+    var equipmentHandler: EquipmentHandler?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var fitnessLevelLabel: UILabel!

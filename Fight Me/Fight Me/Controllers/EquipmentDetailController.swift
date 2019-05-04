@@ -13,23 +13,23 @@ class EquipmentDetailController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var type: UILabel!
-    @IBOutlet weak var maxDur: UILabel!
-    @IBOutlet weak var currDur: UILabel!
     @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var Durr: UILabel!
     
     var equipment: Equipment!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*name.text = equipment.getName()
+        name.text = equipment.getName()
         desc.text = equipment.getDesc()
         type.text = equipment.getTypeAsString()
-        maxDur.text = String(equipment.getMaxDurability())
-        currDur.text = String(equipment.getCurrentDurability())
-        cost.text = String(equipment.getCost())*/
-        //image.image = UIImage(contentsOfFile: equipment.getImagePath())
+        Durr.text = "\(equipment.getMaxDurability()) \\ \(equipment.getCurrentDurability())"
+        
+        cost.text = "\(equipment.getCost()) SP"
+        let eimage: UIImage = UIImage(named: equipment.getImagePath())!
+        image.image = eimage
         
         // Do any additional setup after loading the view.
     }

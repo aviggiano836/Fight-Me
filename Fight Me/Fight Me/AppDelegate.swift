@@ -118,6 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let ProfileVC = tabBarController!.viewControllers![3] as! ProfileController
             ProfileVC.fighter = fighter
             ProfileVC.fitnessHandler = fh
+            ProfileVC.equipmentHandler = equipmentH
         }
         
         return true
