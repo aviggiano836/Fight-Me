@@ -82,6 +82,7 @@ class InventoryController: UITableViewController {
         detailVC!.title = equip.getName()
         detailVC!.equipment = equip
         detailVC!.buyBool = false
+        detailVC!.fighter = fighter
         navigationController?.pushViewController(detailVC!, animated: true)
         
     }
