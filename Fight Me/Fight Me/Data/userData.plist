@@ -15,7 +15,7 @@
 			<string>Beaten by Stabby the Crabby</string>
 		</array>
 		<key>skillPoints</key>
-		<integer>3</integer>
+		<integer>15</integer>
 		<key>equipment</key>
 		<array>
 			<string>Stick</string>
