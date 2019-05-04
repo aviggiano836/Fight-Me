@@ -23,9 +23,10 @@ class Fighter: FighterDetails {
         fitnessLevel = super.calculateBaseFitnessLevel()
     }
     
-    init(equipmentHandler: EquipmentHandler, username:String, height:Double, weight:Double, birthday:Date, skillPoint: Int, stamina: Int, fitnessLevel: Int, equiped: (String,String)) {
+    init(fitnessHandler: FitnessHandler, equipmentHandler: EquipmentHandler, username:String, height:Double, weight:Double, birthday:Date, skillPoint: Int, stamina: Int, fitnessLevel: Int, equiped: (String,String)) {
         super.init(username:username,height:height,weight:weight,birthday:birthday)
         self.equipmentH = equipmentHandler
+        self.fitnessHandler = fitnessHandler
         self.fitnessLevel = fitnessLevel
         self.stamina = stamina
         self.skillPoint = skillPoint

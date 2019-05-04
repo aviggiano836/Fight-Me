@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func loadUser(equipmentHandler: EquipmentHandler){
+    func loadUser(equipmentHandler: EquipmentHandler, fitnessHandler: FitnessHandler){
         do {
             let plistPath = Bundle.main.path(forResource: "userData", ofType: "plist")!
             let data = try Data(contentsOf: URL(fileURLWithPath: plistPath))
@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                 //TODO: get equipment
                 //TODO: get achievements
-            self.fighter = Fighter(equipmentHandler:equipmentHandler, username: name, height: height, weight: weight, birthday: birthday, skillPoint: skillPoints, stamina: stamina, fitnessLevel: fitnessLevel, equiped: myequipment)
+            self.fighter = Fighter(fitnessHandler: fitnessHandler, equipmentHandler:equipmentHandler, username: name, height: height, weight: weight, birthday: birthday, skillPoint: skillPoints, stamina: stamina, fitnessLevel: fitnessLevel, equiped: myequipment)
             
         } catch {
             print(error)
@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             */
             loadInventory()
             let equipmentH = EquipmentHandler(allEquipment: allEquipment, userEquipment:inventory)
-            loadUser(equipmentHandler: equipmentH)
+            loadUser(equipmentHandler: equipmentH, fitnessHandler: fh)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "returningFighter")
             self.window?.rootViewController = initialViewController
