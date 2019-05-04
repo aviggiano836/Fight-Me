@@ -129,6 +129,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             tabBarController = initialViewController as! TabBarController
             
+            //set up fight page
+            let FightVC = tabBarController!.viewControllers![0] as! FightController
+            FightVC.fighter = fighter
+            FightVC.equipment = equipmentH
+            
             //set up shop
             let ShopNavVC = tabBarController!.viewControllers![2] as! UINavigationController
             let ShopTableVC = ShopNavVC.viewControllers[0] as! ShopController
