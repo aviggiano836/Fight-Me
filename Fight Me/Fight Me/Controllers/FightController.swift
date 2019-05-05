@@ -23,7 +23,13 @@ class FightController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var opponentWeapon: UIPickerView!
     @IBOutlet weak var opponentArmor: UIPickerView!
     
+    //Picker view delegates
+    var weaponPVD = EquipmentPickerViewDelegate()
+    var armorPVD = EquipmentPickerViewDelegate()
     
+    // Validate that the the inputs are completed and the fighter still has stamina left
+    //      if yes, simulate fight and create alerts
+    //      if not, alert user in some fashion
     @IBAction func validateAndFight(_ sender: UIButton) {
         if validInputs() {
             if ((fighter?.stamina)! > 0) {
@@ -57,56 +63,72 @@ class FightController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //Determine who wins based on the existing fighter and the given opponent variables
+    // Determine who wins based on the existing fighter and the given opponent variables
+    //      Fight Level is based on the fighter's current level, steps, and buff from their equipment
+    //      Fighter with the highest level wins
     func fight(){
-        //Get levels
+        //Get fighter's fight level
         let fighterLevel = calculateUserLevel(level: (fighter?.getFitnessLevel())!,
                                               steps: (fighter?.fitnessHandler?.getStepsForToday())!,
                                               weapon: (fighter?.getEquiped()?.0)!,
                                               armor: (fighter?.getEquiped()?.1)!)
         
+        // Calculate Opponent's fight level
         // Kept getting weird error when trying to convert the string to a double inline:
         //      Expression type '@lvalue String?' is ambiguous without more context
         let steps = Int((self.opponentSteps?.text)!) //Double(self.opponentSteps.text)
         let level = Int((self.opponentLevel?.text)!)
-        let opponentFightLevel = Double(level!) + (Double(steps!)/1000) + Double.random(in: 0..<2) //Luck
+        let equipmentLevel = Double((equipment?.getEquipment(name: weaponPVD.getSelectedRowAsString()).getBuff())!) + Double((equipment?.getEquipment(name: armorPVD.getSelectedRowAsString()).getBuff())!)
+        let opponentFightLevel = Double(level!) + (Double(steps!)/1000) + equipmentLevel + Double.random(in: 0..<2) //Luck
         
-        //Fight
+        //Fighter with the highest level wins
         if fighterLevel > opponentFightLevel {
-            showAlert(title: "Nice", message: "You won the fight by \(String(format:"%.2f", fighterLevel - opponentFightLevel)) points", action: "Coolio")
-            handleFightAfterMath(fighterWon: true)
+            showAlert(title: "Nice", message: "You won the fight by \(String(format:"%.2f", fighterLevel - opponentFightLevel)) points", action: "Coolio", subAlert: getFightAfterMathAlert(fighterWon: true))
+            
         } else if opponentFightLevel > fighterLevel {
-            showAlert(title: "Boooo!", message: "You lose", action: ":'(")
-            handleFightAfterMath(fighterWon: false)
-        } else if opponentFightLevel == fighterLevel {
-            showAlert(title: "No winners here", message: "Stabby the Crabby got both of you", action: "Crabtastic")
-            handleFightAfterMath(fighterWon: false)
+            showAlert(title: "Boooo!", message: "You lose", action: ":'(", subAlert: getFightAfterMathAlert(fighterWon: false))
+            
+        } else { //Fighters as even, Stabby the Crabby appears
+            showAlert(title: "No winners here", message: "Stabby the Crabby got both of you", action: "Crabtastic", subAlert: getFightAfterMathAlert(fighterWon: false))
         }
     }
     
-    func handleFightAfterMath(fighterWon:Bool){
-        //Aftermath
+    func getFightAfterMathAlert(fighterWon:Bool) -> UIAlertController{
+        // Aftermath: always lose 1 stamina and use equipment
         fighter?.stamina = (fighter?.stamina)! - 1
         fighter?.getEquiped()?.0.useEquipment()
         fighter?.getEquiped()?.1.useEquipment()
-        if fighterWon {
-            let spGain = Int.random(in: 1..<4)
+        var message = "You lost 1 stamina" //Starting message
+        
+        if fighterWon { //Get some skill points
+            let spGain = Int.random(in: 1..<4) //Store spGain for alert message
             fighter?.skillPoint = (fighter?.skillPoint)! + spGain
-            
-            showAlert(title: "Aftermath", message: "You lost 1 stamina and gained \(spGain) SP", action: "Awesome")
-        } else {
-            showAlert(title: "Aftermath", message: "You lost 1 stamina", action: "OK")
+            message = message + " and gained \(spGain) SP"
         }
+        
+        return createAlert(title: "Aftermath", message: message, action: "OK")
     }
     
-    //Create and show an alert for the fight results
-    func showAlert(title:String, message:String, action:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: action, style: .default, handler: nil))
+    // Create an alert with the given title, message, and single action
+    //      Optional subAlert is an optional UIAlertController that will be shown after the user clicks the action
+    func showAlert(title:String, message:String, action:String, subAlert: UIAlertController? = nil){
+        let alert = createAlert(title: title, message: message, action: action, subAlert: subAlert)
         self.present(alert, animated: true)
     }
     
-    //Calculate User Level based on the Fighters level, # of steps, and used equipment
+    // Create an alert with the given title, message,
+    //      Add action with the given action title, and show subAlert if one is given
+    func createAlert(title:String, message:String, action:String, subAlert: UIAlertController? = nil) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: action, style: .default, handler: { [weak alert] (action) -> Void in
+            if subAlert != nil {
+                self.present(subAlert!, animated: true, completion: nil)
+            }
+        }))
+        return alert
+    }
+    
+    // Calculate User Level based on the Fighters level, # of steps, and used equipment
     //      Each 1000 steps counts as 1 level
     //      Each Equipment has a buff amount that counts toward the user's level
     func calculateUserLevel(level: Int, steps: Double, weapon:Equipment, armor: Equipment) -> Double{
@@ -114,21 +136,19 @@ class FightController: UIViewController, UITextFieldDelegate {
         return stepLevel + Double(level + weapon.getBuff() + armor.getBuff()) + Double.random(in: 0..<2) //Luck
     }
     
-    //Populate the weapon picker with the available weapons for the opponent
-    func populateWeapons(){
-        //TODO
-    }
-    
-    //Populate the weapon picker with the available weapons for the opponent
-    func populateArmor(){
-        //TODO
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         opponentSteps.delegate = self
         opponentLevel.delegate = self
+        
+        //Populate the opponent weapon PickerView
+        weaponPVD.initPickerData(equipment: (equipment?.getEquipmentOfType(type: EquipmentType.WEAPON))!)
+        opponentWeapon.delegate = weaponPVD
+        
+        //Populate the opponent armor PickerView
+        armorPVD.initPickerData(equipment: (equipment?.getEquipmentOfType(type: EquipmentType.ARMOR))!)
+        opponentArmor.delegate = armorPVD
         
         //Bluetooth initializations
         centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
@@ -144,7 +164,6 @@ class FightController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    
     // - Bluetooth Stuff
     
     //Bluetooth Variables
@@ -192,10 +211,11 @@ class FightController: UIViewController, UITextFieldDelegate {
 
 }
 
+//Extension for implementing the CBCetnralManagerDelegate for the device to begin receiving bluetooth signals
 extension FightController : CBCentralManagerDelegate {
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        switch central.state {
+        switch central.state { //Check the current state
         case .unknown:
             print("unknown")
         case .resetting:
@@ -208,7 +228,6 @@ extension FightController : CBCentralManagerDelegate {
             print("powered off")
         case .poweredOn:
             print("powered on")
-            //self.centralManager.scanForPeripherals(withServices: nil, options: nil)
         }
         
         if (central.state == .poweredOn){
@@ -216,6 +235,7 @@ extension FightController : CBCentralManagerDelegate {
         }
     }
     
+    //Handle discovering of a peripheral
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
         if (peripheral.identifier == deviceUUID) {
@@ -224,7 +244,7 @@ extension FightController : CBCentralManagerDelegate {
         }
     }
     
-    
+    //Handle successful connection to a peripheral
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("central did connect")
         peripheral.delegate = self
@@ -233,6 +253,7 @@ extension FightController : CBCentralManagerDelegate {
     }
 }
 
+//Fighter is also a peripheral, send data over bluetooth to other fighters
 extension FightController : CBPeripheralDelegate {
     
     func peripheral( _ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
@@ -250,8 +271,9 @@ extension FightController : CBPeripheralDelegate {
     }
 }
 
+//Manager for Fighter to act as a PeripheralManagerDelegate
 extension FightController : CBPeripheralManagerDelegate {
-    
+    // Initialize stuff for acting as a peripheral once powered on
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         if (peripheral.state == .poweredOn){
             initService()
@@ -259,6 +281,7 @@ extension FightController : CBPeripheralManagerDelegate {
         }
     }
     
+    //Handle responses for another fighter
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
         
         for request in requests {
