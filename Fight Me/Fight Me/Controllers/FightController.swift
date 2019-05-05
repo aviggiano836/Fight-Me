@@ -13,6 +13,9 @@ class FightController: UIViewController, UITextFieldDelegate {
     let BAD_INPUT = UIColor(cgColor: #colorLiteral(red: 1, green: 0.6700618703, blue: 0.7056196374, alpha: 1))
     let GOOD_INPUT = UIColor(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
     
+    //Helpers
+    let alerts = AlertHelper()
+    
     //Fighter Variables
     var fighter: Fighter?
     var equipment: EquipmentHandler?
@@ -35,7 +38,7 @@ class FightController: UIViewController, UITextFieldDelegate {
             if ((fighter?.stamina)! > 0) {
                 fight()
             } else {
-                showAlert(title: "Oh No", message: "You're out of stamina, come back tomorrow", action: "Aww")
+                alerts.showAlert(view: self, title: "Oh No", message: "You're out of stamina, come back tomorrow", action: "Aww")
             }
         }
     }
@@ -83,13 +86,13 @@ class FightController: UIViewController, UITextFieldDelegate {
         
         //Fighter with the highest level wins
         if fighterLevel > opponentFightLevel {
-            showAlert(title: "Nice", message: "You won the fight by \(String(format:"%.2f", fighterLevel - opponentFightLevel)) points", action: "Coolio", subAlert: getFightAfterMathAlert(fighterWon: true))
+            alerts.showAlert(view: self, title: "Nice", message: "You won the fight by \(String(format:"%.2f", fighterLevel - opponentFightLevel)) points", action: "Coolio", subAlert: getFightAfterMathAlert(fighterWon: true))
             
         } else if opponentFightLevel > fighterLevel {
-            showAlert(title: "Boooo!", message: "You lose", action: ":'(", subAlert: getFightAfterMathAlert(fighterWon: false))
+            alerts.showAlert(view: self, title: "Boooo!", message: "You lose", action: ":'(", subAlert: getFightAfterMathAlert(fighterWon: false))
             
         } else { //Fighters as even, Stabby the Crabby appears
-            showAlert(title: "No winners here", message: "Stabby the Crabby got both of you", action: "Crabtastic", subAlert: getFightAfterMathAlert(fighterWon: false))
+            alerts.showAlert(view: self, title: "No winners here", message: "Stabby the Crabby got both of you", action: "Crabtastic", subAlert: getFightAfterMathAlert(fighterWon: false))
         }
     }
     
@@ -105,27 +108,7 @@ class FightController: UIViewController, UITextFieldDelegate {
             fighter?.skillPoint = (fighter?.skillPoint)! + spGain
             message = message + " and gained \(spGain) SP"
         }
-        
-        return createAlert(title: "Aftermath", message: message, action: "OK")
-    }
-    
-    // Create an alert with the given title, message, and single action
-    //      Optional subAlert is an optional UIAlertController that will be shown after the user clicks the action
-    func showAlert(title:String, message:String, action:String, subAlert: UIAlertController? = nil){
-        let alert = createAlert(title: title, message: message, action: action, subAlert: subAlert)
-        self.present(alert, animated: true)
-    }
-    
-    // Create an alert with the given title, message,
-    //      Add action with the given action title, and show subAlert if one is given
-    func createAlert(title:String, message:String, action:String, subAlert: UIAlertController? = nil) -> UIAlertController{
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: action, style: .default, handler: { [weak alert] (action) -> Void in
-            if subAlert != nil {
-                self.present(subAlert!, animated: true, completion: nil)
-            }
-        }))
-        return alert
+        return alerts.createAlert(view: self, title: "Aftermath", message: message, action: "OK")
     }
     
     // Calculate User Level based on the Fighters level, # of steps, and used equipment

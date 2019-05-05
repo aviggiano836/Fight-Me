@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F1D38E8227F711500CE7A1E /* EquipmentPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D38E7227F711500CE7A1E /* EquipmentPickerViewDelegate.swift */; };
+		3F1D38ED227F780900CE7A1E /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D38EC227F780900CE7A1E /* AlertHelper.swift */; };
 		3F237BD42267A99100BB8104 /* EquipmentDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F237BD32267A99100BB8104 /* EquipmentDetailController.swift */; };
 		3F237BD62267AB2D00BB8104 /* ShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F237BD52267AB2D00BB8104 /* ShopController.swift */; };
 		3F8A5904225BDDE3002D68ED /* shop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A5903225BDDE3002D68ED /* shop.plist */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		3F1D38E7227F711500CE7A1E /* EquipmentPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentPickerViewDelegate.swift; sourceTree = "<group>"; };
+		3F1D38EC227F780900CE7A1E /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		3F237BD32267A99100BB8104 /* EquipmentDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailController.swift; sourceTree = "<group>"; };
 		3F237BD52267AB2D00BB8104 /* ShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopController.swift; sourceTree = "<group>"; };
 		3F8A5903225BDDE3002D68ED /* shop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = shop.plist; sourceTree = "<group>"; };
@@ -89,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F1D38EA227F77AF00CE7A1E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3F1D38E7227F711500CE7A1E /* EquipmentPickerViewDelegate.swift */,
+				3F1D38EC227F780900CE7A1E /* AlertHelper.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		3F8A58FF225BDD83002D68ED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +111,6 @@
 				3F237BD32267A99100BB8104 /* EquipmentDetailController.swift */,
 				3F237BD52267AB2D00BB8104 /* ShopController.swift */,
 				3F9F7D1C227B4E7700A7A709 /* SplashPageVC.swift */,
-				3F1D38E7227F711500CE7A1E /* EquipmentPickerViewDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +180,7 @@
 		89CBCC9722553ACA009CF61B /* Fight Me */ = {
 			isa = PBXGroup;
 			children = (
+				3F1D38EA227F77AF00CE7A1E /* Delegates */,
 				89383A7D227B570D00975216 /* Fight Me.entitlements */,
 				3F9F7D1B227B4E0E00A7A709 /* Media */,
 				3F8A5902225BDDC1002D68ED /* Data */,
@@ -276,6 +287,7 @@
 				3F8A590A225BDE49002D68ED /* Fighter.swift in Sources */,
 				89CBCC9922553ACA009CF61B /* AppDelegate.swift in Sources */,
 				3F237BD62267AB2D00BB8104 /* ShopController.swift in Sources */,
+				3F1D38ED227F780900CE7A1E /* AlertHelper.swift in Sources */,
 				3F8A5920225BDFB9002D68ED /* NewUserController.swift in Sources */,
 				3F8A5916225BDED1002D68ED /* Equipment.swift in Sources */,
 				3F8A5910225BDE96002D68ED /* AchievementHandler.swift in Sources */,
