@@ -12,12 +12,13 @@ class SplashPageVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Check if a user currently exists
         DispatchQueue.main.async() {
-            if(UserDefaults.standard.string(forKey: "user") == nil){
+            if ( UserDefaults.standard.string(forKey: "user") == nil ) { //If not, send user to create a fighter profile
                 //create user
                 self.performSegue(withIdentifier: "newFighter", sender: self)
-            }else{
+                
+            } else { // Else send user to the tab bar controller
                 self.performSegue(withIdentifier: "returningFighter", sender: self)
             }
 
@@ -33,9 +34,7 @@ class SplashPageVC: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "returingFighter" {
-            //load user info
-            
-            
+            //TODO - load user info
             
             let vc = segue.destination as! TabBarController
             
