@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F1D38E8227F711500CE7A1E /* EquipmentPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D38E7227F711500CE7A1E /* EquipmentPickerViewDelegate.swift */; };
 		3F1D38ED227F780900CE7A1E /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D38EC227F780900CE7A1E /* AlertHelper.swift */; };
+		3F1D38EF227F7A8D00CE7A1E /* DismissKeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D38EE227F7A8D00CE7A1E /* DismissKeyboardDelegate.swift */; };
+		3F1D38F1227F7AF400CE7A1E /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D38F0227F7AF400CE7A1E /* InputValidator.swift */; };
 		3F237BD42267A99100BB8104 /* EquipmentDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F237BD32267A99100BB8104 /* EquipmentDetailController.swift */; };
 		3F237BD62267AB2D00BB8104 /* ShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F237BD52267AB2D00BB8104 /* ShopController.swift */; };
 		3F8A5904225BDDE3002D68ED /* shop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A5903225BDDE3002D68ED /* shop.plist */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		3F1D38E7227F711500CE7A1E /* EquipmentPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentPickerViewDelegate.swift; sourceTree = "<group>"; };
 		3F1D38EC227F780900CE7A1E /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		3F1D38EE227F7A8D00CE7A1E /* DismissKeyboardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboardDelegate.swift; sourceTree = "<group>"; };
+		3F1D38F0227F7AF400CE7A1E /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		3F237BD32267A99100BB8104 /* EquipmentDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailController.swift; sourceTree = "<group>"; };
 		3F237BD52267AB2D00BB8104 /* ShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopController.swift; sourceTree = "<group>"; };
 		3F8A5903225BDDE3002D68ED /* shop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = shop.plist; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 			children = (
 				3F1D38E7227F711500CE7A1E /* EquipmentPickerViewDelegate.swift */,
 				3F1D38EC227F780900CE7A1E /* AlertHelper.swift */,
+				3F1D38EE227F7A8D00CE7A1E /* DismissKeyboardDelegate.swift */,
+				3F1D38F0227F7AF400CE7A1E /* InputValidator.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 				3F8A591C225BDF4A002D68ED /* FightController.swift in Sources */,
 				3F8A590A225BDE49002D68ED /* Fighter.swift in Sources */,
 				89CBCC9922553ACA009CF61B /* AppDelegate.swift in Sources */,
+				3F1D38F1227F7AF400CE7A1E /* InputValidator.swift in Sources */,
 				3F237BD62267AB2D00BB8104 /* ShopController.swift in Sources */,
 				3F1D38ED227F780900CE7A1E /* AlertHelper.swift in Sources */,
 				3F8A5920225BDFB9002D68ED /* NewUserController.swift in Sources */,
@@ -298,6 +305,7 @@
 				3F8A590E225BDE7B002D68ED /* FitnessHandler.swift in Sources */,
 				3F8A5914225BDEC5002D68ED /* EquipmentHandler.swift in Sources */,
 				3F9F7D1D227B4E7700A7A709 /* SplashPageVC.swift in Sources */,
+				3F1D38EF227F7A8D00CE7A1E /* DismissKeyboardDelegate.swift in Sources */,
 				3F8A591A225BDF37002D68ED /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

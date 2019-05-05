@@ -9,12 +9,11 @@
 import UIKit
 import CoreBluetooth
 
-class FightController: UIViewController, UITextFieldDelegate {
-    let BAD_INPUT = UIColor(cgColor: #colorLiteral(red: 1, green: 0.6700618703, blue: 0.7056196374, alpha: 1))
-    let GOOD_INPUT = UIColor(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
-    
+class FightController: UIViewController {
     //Helpers
     let alerts = AlertHelper()
+    let validator = InputValidator()
+    let dismissKeyboardDel = DismissKeyboardDelegate()
     
     //Fighter Variables
     var fighter: Fighter?
@@ -45,25 +44,9 @@ class FightController: UIViewController, UITextFieldDelegate {
     
     //Validate that all the text fields have been properly filled out
     func validInputs() -> Bool{
-        let validLevel = validateTextField(field: opponentLevel)
-        let validSteps = validateTextField(field: opponentSteps)
+        let validLevel = validator.validateTextField(field: opponentLevel)
+        let validSteps = validator.validateTextField(field: opponentSteps)
         return validLevel && validSteps
-    }
-    
-    /*
-     * Validate that a text field has valid input string
-     *      if valid append the input to the given dictionary and return it
-     *          and change the text fields background color to white in case changed previously
-     *      if invalid change the background color or the given text field to BAD_INPUT, pink
-     */
-    func validateTextField(field: UITextField) -> Bool{
-        if field.text == "" {
-            field.backgroundColor = BAD_INPUT
-            return false
-        } else {
-            field.backgroundColor = GOOD_INPUT
-            return true
-        }
     }
     
     // Determine who wins based on the existing fighter and the given opponent variables
@@ -122,8 +105,8 @@ class FightController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        opponentSteps.delegate = self
-        opponentLevel.delegate = self
+        opponentSteps.delegate = dismissKeyboardDel
+        opponentLevel.delegate = dismissKeyboardDel
         
         //Populate the opponent weapon PickerView
         weaponPVD.initPickerData(equipment: (equipment?.getEquipmentOfType(type: EquipmentType.WEAPON))!)
@@ -141,11 +124,7 @@ class FightController: UIViewController, UITextFieldDelegate {
 
     }
     
-    //Dismiss key board on return
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+
 
     // - Bluetooth Stuff
     
